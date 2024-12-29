@@ -1,0 +1,47 @@
+.defaultButton {
+  background: var(--color-gray-600) !important;
+  &:hover {
+    span {
+      color: var(--color-primary-200) !important;
+    }
+  }
+}
+
+.primaryButton {
+  background: var(--color-primary-200) !important;
+  span {
+    color: var(--color-gray-100) !important;
+  }
+  &:focus,
+  &:active {
+    background: var(--color-primary-200) !important;
+  }
+}
+
+.modal {
+  :global {
+    .ant-modal {
+      padding-bottom: 0 !important;
+    }
+    .ant-tabs-tab:hover {
+      background: var(--color-gray-500) !important;
+    }
+    .anticon-close {
+      color: var(--color-gray-100);
+    }
+    .ant-modal-header {
+      padding: 0 !important;
+      background: transparent;
+    }
+  }
+}
+
+.date {
+  :global {
+    *[class^='ant-'] {
+      transition: none !important;
+      animation: none !important;
+      animation-fill-mode: none !important;
+    }
+  }
+}

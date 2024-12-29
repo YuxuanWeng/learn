@@ -1,0 +1,53 @@
+.baseTagContainer {
+  // span:nth-child(5n + 1) {
+  //   background: var(--color-primary-100);
+  // }
+  // span:nth-child(5n + 2) {
+  //   background: var(--color-orange-100);
+  // }
+  // span:nth-child(5n + 3) {
+  //   background: var(--color-green-100);
+  // }
+  // span:nth-child(5n + 4) {
+  //   background: var(--color-purple-100);
+  // }
+  // span:nth-child(5n + 5) {
+  //   background: var(--color-danger-100);
+  // }
+  :global {
+    .ant-tag {
+      border-radius: 0.5rem;
+
+      &:nth-child(5n + 1) {
+        background: var(--color-primary-100);
+      }
+      &:nth-child(5n + 2) {
+        background: var(--color-orange-100);
+      }
+      &:nth-child(5n + 3) {
+        background: var(--color-green-100);
+      }
+      &:nth-child(5n + 4) {
+        background: var(--color-purple-100);
+      }
+      &:nth-child(5n + 5) {
+        background: var(--color-danger-100);
+      }
+    }
+    svg {
+      color: var(--color-gray-100) !important;
+    }
+    span.anticon.anticon-close.ant-tag-close-icon {
+      background: transparent !important;
+    }
+  }
+}
+
+.statusBadge {
+  padding: 0;
+  display: contents;
+}
+
+.textBadge {
+  display: flex;
+}

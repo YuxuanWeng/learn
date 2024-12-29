@@ -1,0 +1,29 @@
+.ant-select-multiple .ant-select-selector::after {
+  visibility: hidden;
+}
+
+.ant-radio-wrapper::after {
+  visibility: hidden;
+}
+
+.ant-cascader-checkbox-wrapper::after {
+  visibility: hidden;
+}
+
+.ant-checkbox-wrapper::after {
+  visibility: hidden;
+}
+
+.ant-tree-checkbox-wrapper::after {
+  visibility: hidden;
+}
+
+.ant-select-tree-checkbox-wrapper::after {
+  visibility: hidden;
+}
+
+.ant-select-single .ant-select-selector::after,
+.ant-select-single .ant-select-selector .ant-select-selection-item::after,
+.ant-select-single .ant-select-selector .ant-select-selection-placeholder::after {
+  visibility: hidden;
+}

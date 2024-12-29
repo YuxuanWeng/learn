@@ -1,0 +1,251 @@
+.s-select {
+  @apply relative inline-flex items-center def:w-full cursor-pointer def:rounded-lg;
+
+  .s-select-label {
+    @apply inline-block shrink-0 text-gray-200;
+  }
+
+  .s-select-selector {
+    @apply inline-flex items-center flex-1 w-0 gap-1 mr-5;
+
+    .s-select-tags {
+      @apply flex-center h-4 px-1 text-gray-700 bg-primary-100 rounded;
+    }
+
+    .s-select-display {
+      @apply inline-block truncate;
+    }
+
+    .s-select-input {
+      // select-none 会禁用 placeholder 的选中效果，不影响正常输入的选中
+      @apply w-0 h-auto p-0 select-none;
+
+      &.s-select-search {
+        @apply w-1;
+      }
+
+      &.s-select-searching {
+        @apply w-full;
+      }
+    }
+  }
+
+  // icon placement
+  .s-select-suffix-icon,
+  .s-select-clear-icon {
+    @apply absolute top-1/2 -translate-y-1/2 leading-0;
+  }
+
+  .s-select-suffix-icon {
+    @apply block;
+  }
+
+  .s-select-clear-icon {
+    @apply hidden cursor-pointer;
+  }
+
+  // theme
+  &.s-select-dark {
+    // background
+    @apply def:bg-gray-700
+      focus-within:bg-primary-700
+      aria-disabled:bg-gray-600
+      aria-disabled:cursor-not-allowed
+      aria-[invalid=true]:focus-within:bg-danger-700;
+
+    // border
+    // 除了combination组件的后缀部分，其余组件的禁用状态都是不用字体颜色调暗的
+    @apply def:border
+      def:border-solid
+      def:border-transparent
+      def:text-gray-000
+      hover:border-primary-000
+      focus-within:border-primary-100
+      aria-disabled:border-transparent
+      aria-[invalid=true]:border-danger-100
+      aria-[invalid=true]:hover:border-danger-000
+      aria-[invalid=true]:focus-within:border-danger-100;
+
+    .s-select-input {
+      @apply def:font-medium
+        def:bg-transparent
+        def:border-none
+        def:outline-none
+        placeholder:text-gray-300
+        disabled:cursor-not-allowed;
+    }
+
+    .s-select-suffix-icon {
+      @apply def:text-gray-200;
+    }
+
+    .s-select-clear-icon {
+      @apply def:text-primary-300
+        hover:text-primary-000
+        aria-[invalid=true]:text-danger-300
+        aria-[invalid=true]:hover:text-danger-000;
+    }
+  }
+
+  // size
+  &.s-select-md {
+    @apply def:h-8 px-3 text-sm;
+
+    .s-select-suffix-icon,
+    .s-select-clear-icon {
+      @apply right-3 w-4 h-4;
+    }
+  }
+
+  &.s-select-sm {
+    @apply def:h-7 px-3 text-sm;
+
+    .s-select-suffix-icon,
+    .s-select-clear-icon {
+      @apply right-3 w-4 h-4;
+    }
+  }
+
+  &.s-select-xs {
+    @apply def:h-6 def:px-3 text-sm;
+
+    .s-select-suffix-icon,
+    .s-select-clear-icon {
+      @apply right-3 w-4 h-4;
+    }
+  }
+
+  // none
+  &.s-select-none {
+    .s-select-selector {
+      .s-select-input {
+        @apply w-full;
+      }
+    }
+  }
+
+  // hover
+  &:hover {
+    &.s-select-with-value.s-select-with-clear {
+      .s-select-clear-icon {
+        @apply block;
+      }
+
+      .s-select-suffix-icon {
+        @apply hidden;
+      }
+    }
+  }
+
+  // open & with options
+  &.s-select-open.s-select-with-options {
+    .s-select-suffix-icon {
+      @apply rotate-180;
+    }
+  }
+}
+
+// 以下样式暂未去分 theme，后期或要调整
+.s-select-dropdown {
+  @apply z-floating bg-gray-600 border border-solid border-gray-500 drop-shadow-dropdown rounded-lg;
+
+  .s-select-dropdown-options {
+    @apply flex flex-col py-2 pl-2 overflow-y-scroll;
+    max-height: 280px;
+    row-gap: 2px;
+    scrollbar-gutter: stable;
+  }
+
+  .s-select-dropdown-option {
+    @apply flex items-center shrink-0 h-8 px-3 text-sm text-gray-100 rounded-lg cursor-pointer;
+
+    &.s-select-dropdown-option-selected {
+      @apply text-primary-100 bg-primary-700;
+    }
+
+    &.s-select-dropdown-option-active {
+      @apply text-gray-000 bg-gray-500;
+
+      // 已选 active 样式
+      &.s-select-dropdown-option-selected {
+        @apply text-primary-100 bg-primary-600;
+      }
+    }
+
+    &.s-select-dropdown-option-disabled {
+      @apply text-gray-300 cursor-not-allowed;
+    }
+  }
+
+  // multiple --- start ---
+  &.s-select-dropdown-multiple {
+    .s-select-dropdown-option {
+      // checkbox
+      .s-checkbox-wrapper {
+        @apply w-full h-8 justify-start text-gray-100;
+
+        .s-checkbox-container {
+          @apply border-gray-200 outline-gray-200;
+        }
+      }
+
+      &.s-select-dropdown-option-selected {
+        @apply bg-transparent;
+
+        .s-checkbox-wrapper {
+          // 勾选后不需要标记主色
+          // @apply text-primary-100;
+
+          .s-checkbox-container {
+            @apply border-primary-100 outline-primary-100;
+          }
+        }
+      }
+
+      &.s-select-dropdown-option-active {
+        .s-checkbox-wrapper {
+          @apply text-primary-000;
+
+          .s-checkbox-container {
+            @apply border-primary-000 outline-primary-000;
+          }
+        }
+
+        // 已选 active 样式
+        &.s-select-dropdown-option-selected {
+          @apply bg-gray-500;
+        }
+      }
+
+      &.s-select-dropdown-option-disabled {
+        .s-checkbox-wrapper {
+          @apply text-gray-300;
+
+          .s-checkbox-container {
+            @apply bg-gray-500 border-gray-400 outline-gray-400;
+          }
+        }
+      }
+    }
+  }
+
+  .s-select-dropdown-selected {
+    @apply pb-3;
+    max-width: 100%;
+    scrollbar-gutter: stable;
+  }
+
+  .s-select-dropdown-tags {
+    // 将已选展示区域高度固定，避免下拉框高度在选择期间跳动
+    @apply flex h-14 flex-wrap gap-2 pl-2  overflow-y-scroll;
+  }
+
+  .s-select-dropdown-tag {
+    @apply inline-flex items-center gap-2 leading-6 px-3 text-sm text-gray-000 bg-gray-600 border border-solid border-gray-500 rounded truncate;
+
+    .s-select-dropdown-tag-close-icon {
+      @apply text-gray-200 h-3 text-xs cursor-pointer hover:text-gray-000;
+    }
+  }
+  // multiple --- end ---
+}

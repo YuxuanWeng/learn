@@ -1,0 +1,125 @@
+{
+  "jest.autoRun": "off",
+  "explorer.compactFolders": false,
+  "editor.tabSize": 2,
+  "prettier.requireConfig": true,
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "tailwindCSS.emmetCompletions": true,
+  // tailwind-styled-components
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)", // tw`...`
+    "tw\\.[^`]+`([^`]*)`", // tw.xxx<xxx>`...`
+    "tw\\(.*?\\).*?`([^`]*)" // tw(Component)<xxx>`...`
+  ],
+  // VIM
+  "vim.easymotion": true,
+  "vim.sneak": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.enableNeovim": false,
+  "vim.handleKeys": {
+    "<C-o>": false,
+    "<C-a>": false,
+    "<C-b>": true,
+    "<C-e>": true,
+    "<C-n>": false,
+    "<C-p>": false,
+    "<C-M-space>": false
+  },
+  "vim.statusBarColors.normal": ["#1c1917", "#ffffff"],
+  "editor.rulers": [120],
+  "cSpell.words": [
+    "antd",
+    "camelcase",
+    "clsx",
+    "commitlint",
+    "consola",
+    "esno",
+    "fepkg",
+    "immer",
+    "keyboardevent",
+    "nprogress",
+    "pnpm",
+    "rambdax",
+    "semibold",
+    "tailwindcss",
+    "tanstack",
+    "toastify",
+    "twcss",
+    "undraggable",
+    "twcss",
+    "NCDP",
+    "visx",
+    "vite",
+    "vitejs",
+    "vitest",
+    "zustand",
+    "Ficc",
+    "proto",
+    "prefetch",
+    "datetime",
+    "Sceniority",
+    "subsector",
+    "subsectors",
+    "Cust",
+    "PVBP",
+    "unrefer",
+    "localdb",
+    "usehooks",
+    "resizer",
+    "overscan",
+    "listbox",
+    "uuidv4",
+    "treeshake",
+    "perp",
+    "upsert",
+    "mousewhell",
+    "localforage",
+    "exper",
+    "aliyun",
+    "pnpx",
+    "nsis",
+    "precommit",
+    "uploadoss",
+    "asar",
+    "pbjs",
+    "protobuf",
+    "protobufjs",
+    "logstore",
+    "aliyuncs",
+    "Oper",
+    "ahooks",
+    "tinyint",
+    "appbar",
+    "kanban",
+    "oppo",
+    "popconfirm",
+    "payfor",
+    "opentelemetry",
+    "iquote",
+    "minio",
+    "zoople"
+  ],
+  "compile-hero.disable-compile-files-on-did-save-code": false
+}

@@ -1,0 +1,49 @@
+.quote-oper {
+  padding: 7px 7px; // 1px的边框
+  border: 1px solid var(--color-gray-600);
+  border-radius: 8px;
+}
+
+.volume.quote-oper {
+  color: var(--color-gray-100);
+  :global {
+    span.ant-select-selection-item {
+      margin-left: 0 !important;
+      font-size: 13px !important;
+      font-weight: 600;
+    }
+  }
+}
+
+.valuation-icon-checked {
+  background-color: var(--color-primary-200) !important;
+}
+
+.base-quote-type-select {
+  .ant-select-selection-item {
+    font-weight: 500;
+  }
+  .ant-select-selector {
+    height: 30px !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+}
+
+.quote-unit {
+  :global {
+    .base-quote-type-select;
+  }
+}
+
+.quote-unit-disabled {
+  :global {
+    .base-quote-type-select;
+    .ant-select-disabled .ant-select-selector {
+      background-color: var(--color-gray-700) !important;
+    }
+    .ant-select-selection-item {
+      color: var(--color-gray-300);
+    }
+  }
+}

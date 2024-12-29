@@ -1,0 +1,39 @@
+.s-cascader-option {
+  @apply py-1 flex items-center pl-3 justify-between rounded-lg hover:bg-gray-500;
+
+  &:hover .s-cascader-checkbox {
+    @apply text-gray-000;
+  }
+
+  &:hover .s-cascader-checkbox:not(.indeterminate, .checked) .s-checkbox-container {
+    @apply border-gray-000;
+  }
+
+  .s-cascader-arrow {
+    @apply pl-1 pr-3 py-1;
+  }
+}
+
+.s-cascader-option-expand {
+  @apply bg-primary-600 text-gray-000;
+
+  .s-cascader-checkbox {
+    @apply text-gray-000;
+  }
+
+  .s-cascader-checkbox:not(.indeterminate, .checked) .s-checkbox-container {
+    @apply border-gray-000;
+  }
+}
+
+.s-cascader-option-disabled {
+  @apply hover:bg-transparent;
+
+  &:hover .s-cascader-checkbox {
+    @apply text-gray-300;
+  }
+
+  &:hover .s-cascader-checkbox:not(.indeterminate, .checked) .s-checkbox-container {
+    @apply border-gray-500;
+  }
+}

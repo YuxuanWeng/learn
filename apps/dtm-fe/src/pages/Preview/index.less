@@ -1,0 +1,31 @@
+.approval-detail-preview-wrapper {
+  @apply absolute-full overflow-scroll;
+  padding-block: 72px;
+  scrollbar-gutter: stable both-edges;
+
+  .approval-detail-preview-container {
+    @apply grid w-min mx-auto;
+    grid-template-columns: 618px 618px;
+    column-gap: 152px;
+    row-gap: 64px;
+
+    @media (max-width: 1280px) {
+      padding-right: 8px;
+    }
+
+    .approval-detail-renderer {
+      height: min-content;
+    }
+  }
+}
+
+* {
+  &::-webkit-scrollbar-thumb {
+    @apply bg-gray-800/24 hover:bg-gray-800/40;
+  }
+}
+
+html {
+  @apply text-gray-800 bg-white;
+  min-width: 100%;
+}

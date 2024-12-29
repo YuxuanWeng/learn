@@ -1,0 +1,36 @@
+// anchor
+
+// default
+// @anchor-bg: transparent;
+// @anchor-border-color: @border-color-split;
+// @anchor-link-top: 4px;
+// @anchor-link-left: 16px;
+// @anchor-link-padding: @anchor-link-top 0 @anchor-link-top @anchor-link-left;
+
+@anchor-bg: transparent;
+@anchor-border-width: 0;
+@anchor-border-color: transparent;
+@anchor-link-top: 6px;
+@anchor-link-left: 28px;
+@anchor-link-right: 4px;
+@anchor-link-padding: @anchor-link-top @anchor-link-right @anchor-link-top @anchor-link-left;
+
+.ant-anchor {
+  &-link {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    &-title {
+      color: var(--color-gray-100);
+      -webkit-user-drag: none;
+    }
+    &:hover > &-title, &-active > &-title {
+      color: var(--color-gray-000);
+    }
+    &:hover {
+      border-color: var(--color-gray-500);
+    }
+    &-active {
+      background-color: var(--color-gray-500);
+    }
+  }
+}

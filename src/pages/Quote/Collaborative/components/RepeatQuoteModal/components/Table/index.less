@@ -1,0 +1,26 @@
+.oms-repeat-quote-table {
+  @apply py-3 px-4;
+
+  .s-table {
+    @apply rounded-lg;
+    height: 304px;
+  }
+
+  .s-tbody {
+    .tr {
+      &.disabled {
+        @apply !text-gray-400;
+
+        .valuation-cell {
+          @apply !bg-gray-400;
+        }
+      }
+
+      &:hover {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+}

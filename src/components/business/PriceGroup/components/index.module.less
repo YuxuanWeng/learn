@@ -1,0 +1,91 @@
+.base-quote-type-select(@height) {
+  .ant-select-selection-item {
+    font-weight: 500;
+  }
+  .ant-select-selector {
+    height: @height !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+}
+
+// 大
+.quote-type-select-large {
+  :global {
+    .base-quote-type-select(30px);
+    span.ant-select-selection-item {
+      line-height: 28px !important;
+    }
+    .ant-select .ant-select-selector {
+      background-color: var(--color-gray-600) !important;
+    }
+  }
+}
+
+.quote-type-select-disabled-large {
+  :global {
+    .base-quote-type-select(30px);
+    .ant-select.ant-select-disabled .ant-select-selector {
+      background-color: var(--color-gray-700) !important;
+    }
+    .ant-select-selection-item {
+      color: var(--color-gray-300);
+    }
+    span.ant-select-selection-item {
+      line-height: 28px !important;
+    }
+  }
+}
+
+// 中
+.quote-type-select-middle {
+  :global {
+    .base-quote-type-select(26px);
+    .ant-select .ant-select-selector {
+      background-color: var(--color-gray-600) !important;
+    }
+    span.ant-select-selection-item {
+      line-height: 24px !important;
+    }
+  }
+}
+
+.quote-type-select-disabled-middle {
+  :global {
+    .base-quote-type-select(26px);
+    .ant-select.ant-select-disabled .ant-select-selector {
+      background-color: var(--color-gray-700) !important;
+    }
+    .ant-select-selection-item {
+      color: var(--color-gray-300);
+    }
+    span.ant-select-selection-item {
+      line-height: 24px !important;
+    }
+  }
+}
+
+// 小
+.quote-type-select-small {
+  :global {
+    .base-quote-type-select(22px);
+    .ant-select .ant-select-selector {
+      background-color: var(--color-gray-600) !important;
+    }
+  }
+}
+
+.quote-type-select-disabled-small {
+  :global {
+    .base-quote-type-select(22px);
+    .ant-select.ant-select-disabled .ant-select-selector {
+      background-color: var(--color-gray-700) !important;
+    }
+    .ant-select-selection-item {
+      color: var(--color-gray-300);
+    }
+    span.ant-select-selection-item {
+      line-height: 20px !important;
+    }
+  }
+}

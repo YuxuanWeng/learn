@@ -1,0 +1,19 @@
+.receipt-deal-table {
+  .s-tbody {
+    @apply overflow-visible;
+
+    .tr {
+      &.tr-expand-parent,
+      &.tr-expand-children:not(.selected) {
+        @apply bg-gray-700;
+      }
+      &.tr-expand-children .selected {
+        @apply bg-gray-600;
+      }
+
+      &.tr-expand-children {
+        @apply mt-0;
+      }
+    }
+  }
+}

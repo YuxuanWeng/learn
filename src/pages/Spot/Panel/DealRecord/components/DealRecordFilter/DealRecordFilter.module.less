@@ -1,0 +1,27 @@
+.filter-date {
+  display: inline-block;
+  :global {
+    .ant-picker {
+      background-color: var(--color-gray-700);
+      &-clear {
+        margin-right: 0;
+        background-color: var(--color-gray-700);
+      }
+      &-focused {
+        background-color: var(--color-primary-500);
+        .ant-picker-clear {
+          background-color: var(--color-primary-500);
+        }
+      }
+      &-disabled {
+        background-color: var(--color-disabled-bg);
+      }
+      &-input {
+        // 禁用状态颜色不需要置灰
+        input[disabled] {
+          color: var(--color-gray-100);
+        }
+      }
+    }
+  }
+}

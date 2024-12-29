@@ -1,0 +1,336 @@
+/* Global */
+* {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(#ffffff, 0.1);
+    border-radius: 4px;
+
+    &:hover {
+      background-color: rgba(#ffffff, 0.24);
+    }
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+.overlay-always {
+  overflow: overlay;
+}
+
+.overlay-x-always {
+  overflow-x: overlay;
+}
+
+.overlay-y-always {
+  overflow-y: overlay;
+}
+
+.overlay-always,
+.overlay-x-always,
+.overlay-y-always {
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(#ffffff, 0.1);
+    }
+  }
+}
+
+// 弹窗等组件中常见的 x 轴虚线分割线
+.component-dashed-x {
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    // 画一条和设计稿差不多的虚线
+    background-image: linear-gradient(
+      to right,
+      var(--color-gray-500),
+      var(--color-gray-500) 58%,
+      transparent 58%,
+      transparent
+    );
+    background-position: bottom;
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+  }
+}
+
+.component-dashed-x-100 {
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    // 画一条和设计稿差不多的虚线
+    background-image: linear-gradient(
+      to right,
+      var(--color-gray-100),
+      var(--color-gray-100) 58%,
+      transparent 58%,
+      transparent
+    );
+    background-position: bottom;
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+  }
+}
+
+.component-dashed-x-600 {
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    // 画一条和设计稿差不多的虚线
+    background-image: linear-gradient(
+      to right,
+      var(--color-gray-600),
+      var(--color-gray-600) 58%,
+      transparent 58%,
+      transparent
+    );
+    background-position: bottom;
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+  }
+}
+
+.component-dashed-x-500 {
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    // 画一条和设计稿差不多的虚线
+    background-image: linear-gradient(
+            to right,
+            var(--color-gray-500),
+            var(--color-gray-500) 58%,
+            transparent 58%,
+            transparent
+    );
+    background-position: bottom;
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+  }
+}
+
+// 弹窗等组件中常见的 y 轴虚线分割线
+.component-dashed-y {
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 1px;
+    // 画一条和设计稿差不多的虚线
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-gray-500),
+      var(--color-gray-500) 58%,
+      transparent 58%,
+      transparent
+    );
+    background-position: right;
+    background-size: 1px 8px;
+    background-repeat: repeat-y;
+  }
+}
+
+.component-dashed-y-400 {
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 1px;
+    // 画一条和设计稿差不多的虚线
+    background-image: linear-gradient(
+            to bottom,
+            var(--color-gray-400),
+            var(--color-gray-400) 58%,
+            transparent 58%,
+            transparent
+    );
+    background-position: right;
+    background-size: 1px 8px;
+    background-repeat: repeat-y;
+  }
+}
+
+.component-dashed-y-600 {
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 1px;
+    // 画一条和设计稿差不多的虚线
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-gray-600),
+      var(--color-gray-600) 58%,
+      transparent 58%,
+      transparent
+    );
+    background-position: right;
+    background-size: 1px 8px;
+    background-repeat: repeat-y;
+  }
+}
+
+.component-dashed-x-bid {
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    // 画一条和设计稿差不多的虚线
+    background-image: linear-gradient(
+      to right,
+      var(--color-orange-500),
+      var(--color-orange-500) 58%,
+      transparent 58%,
+      transparent
+    );
+    background-position: bottom;
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+  }
+}
+
+.component-dashed-x-ofr {
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    // 画一条和设计稿差不多的虚线
+    background-image: linear-gradient(
+      to right,
+      var(--color-secondary-500),
+      var(--color-secondary-500) 58%,
+      transparent 58%,
+      transparent
+    );
+    background-position: bottom;
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+  }
+}
+
+.component-dashed-y-bid {
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 1px;
+    // 画一条和设计稿差不多的虚线
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-orange-500),
+      var(--color-orange-500) 58%,
+      transparent 58%,
+      transparent
+    );
+    background-position: right;
+    background-size: 1px 8px;
+    background-repeat: repeat-y;
+  }
+}
+
+.component-dashed-y-ofr {
+  position: relative;
+  user-select: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 1px;
+    // 画一条和设计稿差不多的虚线
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-secondary-500),
+      var(--color-secondary-500) 58%,
+      transparent 58%,
+      transparent
+    );
+    background-position: right;
+    background-size: 1px 8px;
+    background-repeat: repeat-y;
+  }
+}

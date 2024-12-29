@@ -1,0 +1,7 @@
+{
+  "name": "@fepkg/centrifuge-client",
+  "version": "0.0.1",
+  "dependencies": {
+    "centrifuge": "5.0.1"
+  }
+}

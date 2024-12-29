@@ -1,0 +1,16 @@
+{
+  "name": "dtm-fe",
+  "version": "2.11.1",
+  "scripts": {
+    "dev": "vite",
+    "dev:test": "vite --mode test",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.ts,.jsx,.tsx --quiet && tsc",
+    "lint:fix": "eslint . --ext .js,.ts,.jsx,.tsx --quiet --fix"
+  },
+  "dependencies": {
+    "react-to-print": "2.14.15",
+    "xlsx-js-style": "1.2.0"
+  }
+}

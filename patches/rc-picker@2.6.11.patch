@@ -1,0 +1,26 @@
+diff --git a/es/RangePicker.js b/es/RangePicker.js
+index 040831324f1efa1c184e6f02836c8b612e7bf3e2..dfb56769041105092e40025c2b9922a82072dae4 100644
+--- a/es/RangePicker.js
++++ b/es/RangePicker.js
+@@ -270,7 +270,7 @@ function InnerRangePicker(props) {
+     setTimeout(function () {
+       var inputRef = [startInputRef, endInputRef][index];
+       if (inputRef.current) {
+-        inputRef.current.focus();
++        inputRef.current.focus({ preventScroll: true });
+       }
+     }, 0);
+   }
+diff --git a/lib/RangePicker.js b/lib/RangePicker.js
+index 4eb36593b65a8195107409b9e14a55365fee854d..e7b23cc9f9cee34b379ecea88084dd0312b1d853 100644
+--- a/lib/RangePicker.js
++++ b/lib/RangePicker.js
+@@ -279,7 +279,7 @@ function InnerRangePicker(props) {
+     setTimeout(function () {
+       var inputRef = [startInputRef, endInputRef][index];
+       if (inputRef.current) {
+-        inputRef.current.focus();
++        inputRef.current.focus({ preventScroll: true });
+       }
+     }, 0);
+   }

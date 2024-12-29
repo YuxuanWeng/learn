@@ -1,0 +1,403 @@
+@picker-basic-cell-hover-color: var(--color-gray-500);
+@picker-basic-cell-active-with-range-color: var(--color-primary-600);
+@picker-border-color: var(--color-gray-500);
+@picker-date-hover-range-border-color: transparent;
+@picker-date-hover-range-color: var(--color-primary-600);
+@border-radius-base: 8px;
+@picker-basic-cell-disabled-bg: inherit;
+// Animation
+@animation-duration-base: 0.1s;
+@animation-duration-slow: 0.1s;
+
+@ant-picker-cls: ~'ant-picker';
+
+._current-cell {
+  color: var(--color-primary-200) !important;
+  border: 1px solid var(--color-primary-200);
+  background-color: var(--color-primary-500);
+  border-radius: 1px;
+  line-height: 22px;
+}
+
+.ant-picker {
+  height: 32px;
+  transition: none;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--color-gray-800);
+
+  // ----- Input 相关样式重置 -----
+  &&-disabled {
+    background: var(--color-gray-600);
+  }
+  &-small {
+    height: 24px;
+    padding: 4px 12px !important;
+  }
+  &-large {
+    height: 40px;
+  }
+  &-range-arrow {
+    background: linear-gradient(135deg, transparent 40%, var(--color-gray-500) 40%);
+    &::before {
+      background-color: var(--color-gray-500);
+    }
+  }
+  &-clear {
+    width: 16px;
+    background-color: transparent;
+    margin-right: 3px;
+    &:hover {
+      color: var(--color-primary-000) !important;
+    }
+  }
+  &-suffix {
+    width: 16px;
+    background-color: transparent;
+  }
+  &-input > input {
+    border-radius: 0;
+    transition: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-gray-000);
+    &:placeholder-shown {
+      padding-right: 4px;
+    }
+    &::placeholder {
+      color: var(--color-gray-300);
+    }
+  }
+  &-range &-input {
+    width: 85px;
+    > input {
+      text-overflow: clip;
+      width: 85px;
+    }
+  }
+
+  &-input > input[disabled] {
+    color: var(--color-gray-000);
+  }
+
+  &:hover {
+    .ant-picker-clear {
+      color: var(--color-primary-200);
+    }
+    .ant-picker-suffix {
+      color: var(--color-primary-200);
+    }
+  }
+  &-focused {
+    .ant-picker-clear {
+      color: var(--color-primary-200);
+    }
+    .ant-picker-suffix {
+      color: var(--color-primary-200);
+    }
+    &-separator {
+      color: @text-color;
+    }
+    background: var(--color-primary-700) !important;
+    box-shadow: none;
+  }
+  &-range-separator {
+    .anticon {
+      vertical-align: top;
+      color: var(--color-gray-300);
+    }
+  }
+
+  &-disabled:hover {
+    .ant-picker-suffix,
+    .ant-picker-clear {
+      color: var(--color-gray-400) !important;
+    }
+  }
+
+  // ----- Panel 相关样式重置 -----
+  &-panel-container {
+    background-color: var(--color-gray-600);
+    border: 1px solid var(--color-gray-500);
+    box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  &-panel {
+    border: none;
+  }
+  &-date-panel &-content {
+    width: 238px;
+  }
+  &-content th {
+    height: 24px !important;
+    width: 24px !important;
+  }
+
+  // ----- Cell 相关样式重置 -----
+  &-cell &-cell-inner {
+    border-radius: 8px !important;
+    color: var(--color-gray-300);
+  }
+  &-cell:hover &-cell-inner {
+    background-color: var(--color-gray-500);
+  }
+  &-cell&-cell-in-view &-cell-inner {
+    color: var(--color-gray-000);
+  }
+  &-cell-selected &-cell-inner {
+    border-radius: 8px;
+    color: var(--color-gray-700) !important;
+    background-color: var(--color-primary-400) !important;
+  }
+  &-cell-in-view&-cell-selected &-cell-inner {
+    background-color: var(--color-primary-100) !important;
+  }
+  &-cell-today &-cell-inner {
+    border-radius: 8px;
+    background-color: transparent;
+    border: 1px solid var(--color-primary-400);
+    color: var(--color-primary-100) !important;
+    &::before {
+      display: none;
+    }
+    // 防止范围搜索today hover时背景色遮盖
+    position: absolute;
+    left: 5px;
+    overflow: hidden;
+  }
+  &-cell-in-view&-cell-today &-cell-inner {
+    border: 1px solid var(--color-primary-100);
+    // -- 设置边框后，行高需要将上下边框厚度总和排除；
+    line-height: 22px;
+    color: var(--color-primary-100) !important;
+  }
+  &-cell-selected&-cell-today &-cell-inner {
+    color: var(--color-gray-700) !important;
+  }
+  &-cell-disabled &-cell-inner {
+    color: var(--color-gray-300) !important;
+  }
+  &-week-panel &-cell,
+  &-year-panel &-cell,
+  &-month-panel &-cell {
+    &::before {
+      display: none;
+    }
+    &-inner {
+      margin: 18px auto;
+    }
+  }
+  &-time-panel-column > li&-time-panel-cell-selected &-time-panel-cell-inner {
+    background: var(--color-gray-500);
+  }
+  &-date-panel &-body {
+    padding: 12px 22px;
+  }
+
+  // ----- Header 相关样式重置 -----
+  &-header {
+    height: 36px;
+    margin-top: -2px;
+    padding: 0 16px;
+    border-bottom-color: var(--color-gray-500);
+  }
+  &-header-view {
+    color: var(--color-gray-000);
+    font-size: 13px;
+  }
+  &-header &-header-view button {
+    &:not(:first-child) {
+      margin-left: 4px;
+      padding-left: 8px;
+      position: relative;
+      &::after {
+        content: '-';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  // ----- RangePicker 相关样式重置 -----
+  &-cell&-cell-range-hover-start {
+    &::after {
+      border-top-left-radius: 8px !important;
+      border-bottom-left-radius: 8px !important;
+      overflow: hidden;
+    }
+  }
+  &-cell&-cell-range-hover-end {
+    &::after {
+      border-top-right-radius: 8px !important;
+      border-bottom-right-radius: 8px !important;
+      overflow: hidden;
+    }
+  }
+  &-cell&-cell-range-start &-cell-inner,
+  &-cell&-cell-range-end &-cell-inner {
+    color: var(--color-gray-700) !important;
+    background: var(--color-primary-100) !important;
+  }
+  &-cell-range-start,
+  &-cell-range-end,
+  &-cell-in-range {
+    &::before {
+      background: var(--color-primary-600) !important;
+    }
+  }
+
+  &-cell-range-end&-cell-today {
+    &::before {
+      width: 50%;
+    }
+  }
+
+  &-cell-range-start&-cell-range-end {
+    &::before {
+      display: none;
+    }
+  }
+
+  &-cell-range-end-single,
+  &-cell-range-start-single {
+    &::before {
+      background: transparent !important;
+    }
+  }
+  &-cell-range-hover,
+  &-cell-range-hover-start,
+  &-cell-range-hover-end,
+  &cell-range-hover-edge-start,
+  &cell-range-hover-edge-end {
+    &::after {
+      left: 0;
+      border: none;
+      background: var(--color-primary-600);
+    }
+  }
+  &-active-bar {
+    display: none;
+  }
+
+  // ----- 时间选择 -----
+  &-time-panel {
+    .@{ant-picker-cls}-content {
+      padding: 8px;
+      gap: 4px;
+    }
+    &-column {
+      overflow: hidden;
+      &:hover {
+        overflow-y: overlay;
+      }
+      &:not(:first-child) {
+        border-left: 0 none;
+      }
+    }
+    &-column > li&-cell &-cell-inner {
+      padding-left: 20px;
+      border-radius: 8px;
+    }
+    &-column > li&-cell-selected &-cell-inner {
+      color: var(--primary-100, #1fd59e);
+      background: var(--primary-600, #234b44);
+    }
+  }
+
+  // ----- Footer 相关样式重置 -----
+  &-footer {
+    background-color: var(--color-gray-600);
+    border-top-color: var(--color-gray-500) !important;
+    margin-bottom: -1px;
+    .ant-picker {
+      &-ranges {
+        height: 36px;
+        padding: 5px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      &-now {
+        &-btn {
+          border-radius: 8px;
+          border: 1px solid var(--color-primary-100);
+          padding: 3px 13px;
+          color: var(--color-primary-100);
+          text-align: center;
+          &:hover {
+            color: var(--color-primary-000);
+            border-color: var(--color-primary-000);
+            background-color: var(--color-primary-500);
+          }
+        }
+      }
+      &-ok {
+        .ant-btn {
+          padding: 1.6px 13px;
+          border-color: var(--color-primary-100);
+          font-weight: 500;
+          text-shadow: none;
+          background-color: var(--color-primary-100);
+          color: var(--color-gray-700);
+          transition: none;
+          &:hover {
+            border-color: var(--color-primary-000);
+            background-color: var(--color-primary-000);
+          }
+        }
+      }
+    }
+  }
+
+  &-footer-extra {
+    padding: 0;
+  }
+
+  &-today-btn {
+    display: inline-block;
+    width: 60px;
+    height: 24px;
+    line-height: 32px;
+    border-radius: 2px;
+    margin: auto;
+    user-select: none;
+    font-size: 13px;
+    color: var(--color-primary-100);
+    &:hover {
+      color: var(--color-primary-200);
+    }
+    &:active {
+      color: var(--color-primary-300);
+    }
+  }
+
+  &:has(.ant-picker-suffix + .ant-picker-clear) {
+    &:focus,
+    &:hover {
+      .ant-picker-suffix {
+        visibility: hidden;
+      }
+    }
+  }
+
+  &.ant-picker-focused:has(.ant-picker-suffix + .ant-picker-clear) {
+    .ant-picker-suffix {
+      visibility: hidden;
+    }
+  }
+}
+
+.yearLoop(@year) when (@year < 2122) {
+  .yearLoop(@year + 1);
+  .ant-picker-dropdown.year-@{year} {
+    .ant-picker-cell[title='@{year}'] {
+      .ant-picker-cell-inner {
+        ._current-cell();
+      }
+    }
+  }
+}
+.yearLoop(1990);

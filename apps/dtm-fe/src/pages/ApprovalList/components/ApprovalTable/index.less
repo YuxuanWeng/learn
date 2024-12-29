@@ -1,0 +1,32 @@
+.dtm-approval-table {
+  .s-tbody {
+    @apply overflow-visible;
+
+    .tr {
+      .td {
+        @apply h-10;
+      }
+
+      &.tr-expand-parent,
+      &.tr-expand-children {
+        @apply bg-gray-700;
+      }
+
+      &.tr-expand-children {
+        @apply mt-0;
+      }
+    }
+  }
+
+  .s-table-css-virtual {
+    .td {
+      contain-intrinsic-size: 40px;
+    }
+  }
+
+  .pinned-right {
+    @apply sticky right-0;
+    z-index: 9;
+    content-visibility: visible;
+  }
+}

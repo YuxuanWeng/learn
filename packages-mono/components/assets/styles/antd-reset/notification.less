@@ -1,0 +1,37 @@
+.messageColor(@bgColor) {
+  background: @bgColor;
+  border-color: @bgColor;
+  color: @bgColor;
+  border-radius: 8px;
+}
+
+.ant-notification {
+  i[class^='icon'] {
+    width: 16px;
+    height: 16px;
+  }
+
+  &-notice-content {
+    border: 0;
+  }
+
+  &-notice-custom {
+    .messageColor(var(--color-gray-500));
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+  }
+
+  .ant-notification-notice{
+    width: auto;
+  }
+
+  .ant-notification-notice-message{
+    padding: 0;
+    margin: 0;
+  }
+
+  .ant-notification-notice-close{
+    display: none;
+  }
+}

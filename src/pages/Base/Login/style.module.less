@@ -1,0 +1,37 @@
+.login_wrap {
+  background: linear-gradient(135deg, #151619 0%, #0c2134 32.29%, #151517 65.1%, #022545 100%);
+
+  :global {
+    .ant-carousel {
+      .dots-panel {
+        bottom: 0;
+        li {
+          margin-left: 0;
+          margin-right: 12px;
+          width: 11px;
+          height: 4px;
+          &:last-child {
+            margin-right: 0;
+          }
+          button {
+            height: 4px;
+            border-radius: 6px;
+            background: rgba(217, 217, 217, 0.6);
+            &::after {
+              position: absolute;
+              content: '';
+              inset: -4px;
+            }
+          }
+          &.slick-active {
+            width: 11px;
+            height: 4px;
+            button {
+              background: #42cca8;
+            }
+          }
+        }
+      }
+    }
+  }
+}

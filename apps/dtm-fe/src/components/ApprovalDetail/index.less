@@ -1,0 +1,49 @@
+.approval-detail-drawer {
+  width: 778px;
+  @apply flex flex-col h-full;
+
+  .container {
+    @apply relative flex-1 pb-6 overflow-y-scroll overflow-x-hidden;
+    scrollbar-gutter: stable both-edges;
+  }
+}
+
+.approval-detail-renderer {
+  @apply relative mt-12 border border-solid border-gray-500 bg-gray-000;
+
+  font-family:
+    'SourceHanSans',
+    system-ui,
+    -apple-system,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  .row {
+    @apply border-0 border-b border-solid border-gray-500;
+
+    &.row-dashed {
+      @apply border-dashed border-gray-200;
+
+      .item {
+        @apply border-dashed border-gray-200;
+      }
+    }
+
+    &:last-of-type {
+      @apply border-none;
+    }
+  }
+
+  .item {
+    @apply flex gap-3 p-2 border-0 border-r border-solid border-gray-500;
+
+    &:last-of-type {
+      @apply border-r-0;
+    }
+
+    .item {
+      @apply p-0;
+    }
+  }
+}

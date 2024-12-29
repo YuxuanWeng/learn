@@ -1,0 +1,27 @@
+.range-input {
+  input:focus {
+    background-color: transparent !important;
+  }
+
+  button {
+    i {
+      background-color: var(--color-primary-300) !important;
+    }
+  }
+
+  :global {
+    .ant-picker-input > input {
+      line-height: 18px;
+      &::placeholder {
+        color: var(--color-gray-300);
+      }
+    }
+  }
+}
+.range-input-error {
+  button {
+    i {
+      background-color: var(--color-danger-100) !important;
+    }
+  }
+}

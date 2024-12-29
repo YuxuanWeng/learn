@@ -1,0 +1,114 @@
+:global {
+  .rc-picker {
+    display: inline-flex;
+  }
+
+  .rc-picker-header {
+    height: 36px;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px var(--color-gray-400) solid;
+  }
+  .rc-picker-header-view {
+    font-size: 13px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .rc-picker-header-super-prev-btn,
+  .rc-picker-header-prev-btn,
+  .rc-picker-header-next-btn,
+  .rc-picker-header-super-next-btn {
+    border: none;
+    width: 24px;
+    height: 24px;
+    color: transparent;
+    font-size: 22px;
+    line-height: 24px;
+    background-color: var(--color-gray-200);
+    mask-size: contain;
+    mask-position: 0 0;
+    mask-repeat: no-repeat;
+    display: inline-block;
+  }
+  .rc-picker-header-super-prev-btn {
+    mask-image: url('@/assets/icons/left4.svg');
+  }
+  .rc-picker-header-prev-btn {
+    mask-image: url('@/assets/icons/left3.svg');
+  }
+  .rc-picker-header-next-btn {
+    mask-image: url('@/assets/icons/right3.svg');
+  }
+  .rc-picker-header-super-next-btn {
+    mask-image: url('@/assets/icons/right4.svg');
+  }
+
+  .rc-picker-year-btn,
+  .rc-picker-month-btn,
+  .rc-picker-decade-btn {
+    border: none;
+    background-color: transparent;
+    font-size: 13px;
+    padding: 0 2px;
+  }
+
+  .rc-picker-body {
+    padding: 12px 24px;
+    width: 100%;
+    height: 202px;
+  }
+
+  .rc-picker-content {
+    height: 100%;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rc-picker-content th,
+  .rc-picker-content td {
+    padding: 0 4px;
+    min-width: 24px;
+    line-height: 24px;
+  }
+
+  .rc-picker-content tbody {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    justify-content: space-around;
+  }
+  .rc-picker-content tr {
+    height: 24px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+  }
+  .rc-picker-cell {
+    cursor: pointer;
+    color: var(--color-gray-400);
+  }
+  .rc-picker-cell:hover {
+    background-color: var(--color-gray-500);
+  }
+
+  .rc-picker-cell-in-view {
+    color: var(--color-gray-100);
+  }
+
+  .rc-picker-cell-selected {
+    background-color: var(--color-primary-200) !important;
+    color: var(--color-gray-100) !important;
+  }
+  .rc-picker-cell-today {
+    border: 1px var(--color-primary-200) solid;
+    background-color: var(--color-primary-400);
+    color: var(--color-primary-200);
+  }
+}

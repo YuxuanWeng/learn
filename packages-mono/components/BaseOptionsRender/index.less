@@ -1,0 +1,94 @@
+// options容器基础样式
+.s-base-option-container {
+  @apply def:h-8 def:rounded-lg px-3 text-sm
+  flex-shrink-0 items-center cursor-pointer;
+
+  // 多选框初始样式，目的是为了覆盖checkbox的hover样式
+  .s-checkbox-wrapper {
+    @apply h-8 justify-start text-gray-100;
+    .s-checkbox-container {
+      @apply border-gray-200 outline-gray-200;
+    }
+  }
+
+  // 当前选项活动态
+  &.s-base-option-active:not(.s-base-option-disabled) {
+    @apply bg-gray-500 text-primary-000;
+    .s-checkbox-wrapper {
+      @apply text-primary-000;
+      .s-checkbox-container {
+        @apply border-primary-000 outline-primary-000;
+      }
+    }
+  }
+
+  // hover的active状态
+  &.s-base-option-hover-active:not(.s-base-option-disabled):hover {
+    @apply bg-gray-500 text-primary-000;
+    .s-checkbox-wrapper {
+      @apply text-primary-000;
+      .s-checkbox-container {
+        @apply border-primary-000 outline-primary-000;
+      }
+    }
+  }
+
+  // 多选框的已选状态
+  &.s-base-option-multiple-checked {
+    .s-checkbox-wrapper {
+      @apply text-gray-000;
+      .s-checkbox-container {
+        @apply border-primary-100 outline-primary-100;
+      }
+    }
+  }
+
+  // 单选的已选样式和多选的展开当前子项的样式
+  &.s-base-option-selected:not(.s-base-option-disabled) {
+    @apply bg-primary-700 hover:bg-primary-600 hover:text-primary-000;
+    .s-checkbox-wrapper {
+      @apply text-gray-000;
+    }
+    &.s-base-option-single {
+      @apply text-primary-100;
+    }
+  }
+
+  // 禁选
+  &.s-base-option-disabled {
+    @apply cursor-not-allowed text-gray-300;
+    .s-checkbox-wrapper {
+      @apply text-gray-300;
+
+      .s-checkbox-container {
+        @apply bg-gray-500 border-gray-400 outline-gray-400;
+      }
+    }
+    // 已选项的禁用状态
+    &.s-base-option-multiple-checked {
+      .s-checkbox-container {
+        @apply bg-primary-500 border-primary-500 outline-primary-500;
+      }
+    }
+  }
+
+  // 目的是让后缀元素始终保持居中，避免后缀常显时鼠标hover后上下跳动
+  .s-base-option-suffix {
+    @apply flex;
+  }
+
+  // hover后展示后缀元素
+  &.s-base-option-hover-for-suffix {
+    .s-base-option-suffix {
+      @apply hidden;
+    }
+    &:hover .s-base-option-suffix {
+      @apply flex;
+    }
+  }
+
+  // 二级文案样式
+  .s-base-option-secondary {
+    @apply text-xs text-gray-200 pl-2;
+  }
+}

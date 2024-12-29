@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preload" href="./assets/fonts/OPPOSans-B.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./assets/fonts/OPPOSans-H.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./assets/fonts/OPPOSans-M.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./assets/fonts/OPPOSans-R.woff2" as="font" type="font/woff2" crossorigin />
+  <title>OMS</title>
+</head>
+
+<body>
+  <div id="root">
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 16px;
+      }
+
+      html,
+      body {
+        height: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      body {
+        font-size: 13px;
+        color: #fdfdfd;
+        background-color: #1f2023;
+      }
+
+      .draggable {
+        user-select: none;
+        -webkit-app-region: drag;
+      }
+
+      .undraggable {
+        -webkit-user-select: text;
+        user-select: text;
+        -webkit-app-region: no-drag;
+      }
+
+      .y-center {
+        display: flex;
+        align-items: center;
+      }
+
+      .y-bottom {
+        display: flex;
+        align-items: flex-end;
+      }
+
+      #main {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #header {
+        border-radius: 8px 8px 0 0;
+        padding: 16px 0;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 1.25rem 0 1rem;
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #292a2f url(./assets/image/bg-system-status-bar.svg) top left no-repeat;
+        background-size: contain 100%;
+      }
+
+      #header.page-other {
+        height: 56px;
+        line-height: 56px;
+      }
+
+      #header-logo-wrap {
+        height: 28px;
+        display: flex;
+        align-items: center;
+      }
+
+      #header-logo-wrap .product {
+        display: flex;
+        align-items: flex-end;
+        margin-left: 0.5rem
+          /* 8px */
+        ;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      #header-logo-wrap .product-version {
+        margin-top: 0.25rem
+          /* 4px */
+        ;
+        font-size: 0.8125rem
+          /* 13px */
+        ;
+        line-height: 1.375rem
+          /* 22px */
+        ;
+        font-weight: 400;
+        --tw-text-opacity: 1;
+        color: rgb(177 178 189);
+      }
+
+      #header-close-wrap {
+        margin-top: 1px;
+        margin-right: 1px;
+        justify-content: center;
+        cursor: pointer;
+        color: rgb(212 213 219);
+      }
+
+      #container {
+        flex: 1;
+        justify-content: center;
+      }
+
+      #container .con-img {
+        width: 200px;
+      }
+
+      #container .con-msg {
+        justify-content: center;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      #container .con-title {
+        color: var(--color-gray-200);
+        text-align: center;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 22px;
+      }
+
+      #container .con-sub-title {
+        color: var(--color-gray-300);
+        text-align: center;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+      }
+
+      #container .con-btn-wrap {
+        margin-top: 16px;
+      }
+
+      #container .con-btn-wrap .con-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5px 16px;
+        height: 32px;
+        line-height: 1;
+        gap: 4px;
+        border: 0 none;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+
+        background: var(--color-primary-100, #1fd49e);
+        color: var(--color-gray-700, #292a2f);
+
+        cursor: pointer;
+
+        transition: all 0.25s linear;
+      }
+
+      #container .con-btn-wrap .con-btn:hover {
+        background: var(--color-primary-000, #5adeb2);
+      }
+    </style>
+    <main id="main" style="display: none">
+      <header id="header" class="draggable">
+        <div id="header-logo-wrap">
+          <span class="y-bottom">
+            <img src="./assets/image/oms-logo.svg" alt="OMS Logo" />
+          </span>
+          <div class="product y-bottom">
+            <span class="product-version" id="product-version"></span>
+          </div>
+        </div>
+        <div id="header-close-wrap" class="undraggable y-center">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="M19.6014 5.45925C19.8943 5.16636 19.8943 4.69149 19.6014 4.39859C19.3085 4.1057 18.8337 4.1057 18.5408 4.39859L12 10.9393L5.45929 4.39859C5.16639 4.1057 4.69152 4.1057 4.39863 4.39859C4.10573 4.69149 4.10573 5.16636 4.39863 5.45925L10.9394 12L4.39862 18.5407C4.10573 18.8336 4.10573 19.3085 4.39862 19.6014C4.69152 19.8943 5.16639 19.8943 5.45929 19.6014L12 13.0607L18.5408 19.6014C18.8337 19.8943 19.3085 19.8943 19.6014 19.6014C19.8943 19.3085 19.8943 18.8336 19.6014 18.5407L13.0607 12L19.6014 5.45925Z">
+            </path>
+          </svg>
+        </div>
+      </header>
+      <div id="container" class="y-center">
+        <div class="con-wrap">
+          <img class="con-img" src="./assets/image/system-crash.svg" alt="OMS" />
+          <div class="con-msg y-center">
+            <p class="con-title">系统崩溃</p>
+            <p class="con-sub-title">请关闭系统，重新启动尝试修复</p>
+            <div class="con-btn-wrap">
+              <button class="con-btn" id="btn-system-close">
+                关闭窗口
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="global-search-options-container"></div>
+  <div id="quick-search-options-container"></div>
+  <div id="search-options-container"></div>
+  <div id="deep-quote-modal-container"></div>
+  <div id="tooltip-container"></div>
+  <div id="floating-container"></div>
+  <script type="module" src="./main.tsx"></script>
+  <script type="module">
+    import IPCEventEnum from 'app/types/IPCEvents';
+    import { WindowName } from 'app/types/window-v2';
+
+    const handleIsHomeOrProduct = name => {
+      return name === WindowName.MainHome || name.startsWith(WindowName.ProductPanel);
+    };
+
+    window.addEventListener(
+      'load',
+      async () => {
+        const { invoke } = window.Main;
+        const winName = await invoke(IPCEventEnum.GetWindowName);
+
+        const header = document.getElementById('header');
+
+        if (!handleIsHomeOrProduct(winName)) {
+          header?.classList.add('page-other');
+        }
+
+        const resourcesErrorHandle = () => {
+          const close = window.Main?.close;
+          const headerCloseWrap = document.getElementById('header-close-wrap');
+          document.getElementById('product-version').innerText = `v ${window.appConfig?.version ?? ''}`;
+          headerCloseWrap.addEventListener(
+            'click',
+            e => {
+              e.stopPropagation();
+              close?.();
+            },
+            false
+          );
+          document.getElementById('btn-system-close').addEventListener('click', () => close?.(), false);
+          header?.addEventListener(
+            'dblclick',
+            () => {
+              window.Main.invoke('toggle-maximize');
+            },
+            false
+          );
+        };
+
+        setTimeout(() => {
+          const root = document.getElementById('root');
+          const m = document.getElementById('main');
+          if (m != null) {
+            root.style.height = '100%';
+            m.style.display = 'flex';
+            resourcesErrorHandle();
+          }
+        }, 1200);
+      },
+      false
+    );
+  </script>
+</body>
+
+</html>

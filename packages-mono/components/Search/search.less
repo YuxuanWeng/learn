@@ -1,0 +1,28 @@
+// 以下样式暂未去分 theme，后期或要调整
+.s-search-dropdown {
+  @apply z-floating flex flex-col py-2 pl-2 bg-gray-600 border border-solid border-gray-500 drop-shadow-dropdown rounded-lg overflow-y-scroll;
+  max-height: 280px;
+  scrollbar-gutter: stable;
+  row-gap: 2px;
+
+  .s-search-dropdown-option {
+    @apply flex items-center shrink-0 h-8 px-3 text-sm text-gray-100 rounded-lg cursor-pointer;
+
+    &.s-search-dropdown-option-selected {
+      @apply text-primary-100 bg-primary-700;
+    }
+
+    &.s-search-dropdown-option-active {
+      @apply text-gray-000 bg-gray-500;
+
+      // 已选 active 样式
+      &.s-search-dropdown-option-selected {
+        @apply text-primary-100 bg-primary-600;
+      }
+    }
+
+    &.s-search-dropdown-option-disabled {
+      @apply text-gray-300 cursor-not-allowed;
+    }
+  }
+}

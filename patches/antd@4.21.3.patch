@@ -1,0 +1,26 @@
+diff --git a/es/_util/scrollTo.js b/es/_util/scrollTo.js
+index 12318f660bc9d6fb16a5b077937658f2ac105cb2..70f3cc1ce86b7526d102023a9036ff900e2032a9 100644
+--- a/es/_util/scrollTo.js
++++ b/es/_util/scrollTo.js
+@@ -9,7 +9,7 @@ export default function scrollTo(y) {
+   } : _options$getContainer,
+       callback = options.callback,
+       _options$duration = options.duration,
+-      duration = _options$duration === void 0 ? 450 : _options$duration;
++      duration = _options$duration === void 0 ? 50 : _options$duration;
+   var container = getContainer();
+   var scrollTop = getScroll(container, true);
+   var startTime = Date.now();
+diff --git a/lib/_util/scrollTo.js b/lib/_util/scrollTo.js
+index 786105f03e76eecf9c8b773e4ff14bca2305dd55..66f677052ff7290e7c56efc7470bff0c66b8be76 100644
+--- a/lib/_util/scrollTo.js
++++ b/lib/_util/scrollTo.js
+@@ -27,7 +27,7 @@ function scrollTo(y) {
+   } : _options$getContainer,
+       callback = options.callback,
+       _options$duration = options.duration,
+-      duration = _options$duration === void 0 ? 450 : _options$duration;
++      duration = _options$duration === void 0 ? 50 : _options$duration;
+   var container = getContainer();
+   var scrollTop = (0, _getScroll["default"])(container, true);
+   var startTime = Date.now();

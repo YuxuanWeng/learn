@@ -1,0 +1,59 @@
+@loadingColor: var(--color-primary-300);
+@leftWidth: 0.16rem;
+@loadingWidth: 6rem;
+
+.router_loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(110deg, #242424 4.08%, #2c2e33 97.73%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 4px;
+  width: 160px;
+  height: 100px;
+  border-radius: 8px;
+}
+
+.btn-close-container {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn-close {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: 1.5px;
+    background-color: white;
+  }
+
+  &::before {
+    right: 0;
+
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    left: 0;
+    transform: rotate(134deg);
+  }
+}

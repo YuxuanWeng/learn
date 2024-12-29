@@ -1,0 +1,245 @@
+.s-table {
+  @apply relative flex flex-col w-full h-full text-sm font-medium overflow-hidden;
+
+  .bg-placeholder {
+    @apply bg-gray-800;
+  }
+
+  .bg-placeholder-700 {
+    @apply bg-gray-700;
+  }
+
+  .tr {
+    @apply relative flex w-full bg-gray-800 cursor-default;
+
+    &.selected {
+      @apply bg-gray-500;
+
+      .bg-placeholder,
+      .bg-placeholder-700 {
+        @apply bg-gray-500;
+      }
+    }
+
+    &.disabled {
+      @apply !text-gray-300;
+    }
+  }
+
+  ::selection {
+    @apply text-inherit bg-transparent;
+  }
+}
+
+// --- THead styles start ---
+
+.s-thead {
+  @apply flex-shrink-0 font-medium text-gray-200 bg-gray-800 overflow-hidden will-change-scroll z-20;
+}
+
+.s-thead-th {
+  @apply relative flex-shrink-0 h-9 bg-gray-800 border border-dashed rounded-lg cursor-pointer;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+}
+
+.s-thead-resizing {
+  & * {
+    cursor: col-resize !important;
+  }
+
+  .s-thead-th:not(.s-thead-th-resizing) {
+    @apply border-transparent;
+    .s-thead-th-resizer {
+      @apply opacity-0;
+    }
+  }
+}
+
+// --- THead styles end ---
+
+.s-tbody-wrapper {
+  @apply z-10 relative flex-1 bg-gray-800 will-change-scroll overflow-overlay;
+}
+
+.s-tbody {
+  @apply min-h-full text-orange-050 overflow-hidden;
+
+  .s-tbody-inner {
+    @apply bg-gray-700;
+  }
+
+  .s-tbody-data-inner {
+    @apply pb-px;
+  }
+
+  .tr {
+    @apply relative mt-px;
+
+    .td {
+      @apply flex-shrink-0;
+    }
+
+    &:first-of-type {
+      @apply mt-0;
+    }
+
+    &::before {
+      z-index: 10;
+      content: '';
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      border: 1px solid transparent;
+      pointer-events: none;
+    }
+
+    &:hover {
+      &::before {
+        @apply border-primary-300;
+      }
+    }
+  }
+}
+
+.s-drag-table-wrapper {
+  .tr {
+    // 拖拽表格需要input支持选中
+    .s-input {
+      &::selection {
+        @apply !bg-primary-200;
+      }
+    }
+
+    .drag-tips {
+      margin-left: 3px;
+      opacity: 0;
+    }
+    &::before.drop-tr-target-up {
+      @apply border-t-primary-300;
+    }
+    &::before.drop-tr-target-down {
+      @apply border-b-primary-300;
+    }
+    //  hover到tr时展示可拖拽图标
+    &:hover {
+      .drag-tips {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.s-group-tbody {
+  .tr {
+    &.group-header,
+    &.group-footer {
+      &::before {
+        @apply hidden;
+      }
+    }
+  }
+}
+
+.s-table-rounded-l {
+  .s-tbody {
+    .tr {
+      &:first-of-type {
+        &::before {
+          border-top-left-radius: 8px;
+        }
+      }
+
+      &:last-of-type {
+        &::before {
+          border-bottom-left-radius: 8px;
+        }
+      }
+    }
+  }
+}
+
+.s-table-rounded-r {
+  .s-tbody {
+    .tr {
+      &:first-of-type {
+        &::before {
+          border-top-right-radius: 8px;
+        }
+      }
+
+      &:last-of-type {
+        &::before {
+          border-bottom-right-radius: 8px;
+        }
+      }
+    }
+  }
+}
+
+.s-table-border-none {
+  .td {
+    border: none !important;
+  }
+}
+
+// size
+.s-table-md {
+  .s-tbody {
+    .tr {
+      .td {
+        @apply h-8;
+      }
+    }
+  }
+
+  .s-table-css-virtual {
+    .td {
+      content-visibility: auto;
+      contain-intrinsic-size: 32px;
+    }
+  }
+}
+
+.s-table-sm {
+  .s-tbody {
+    .tr {
+      .td {
+        @apply h-7;
+      }
+    }
+  }
+
+  .s-table-css-virtual {
+    .td {
+      content-visibility: auto;
+      contain-intrinsic-size: 28px;
+    }
+  }
+}
+
+// 斑马纹表格样式
+.s-table-zebra {
+  .tr {
+    @apply mt-0;
+
+    &:nth-child(even) {
+      @apply bg-gray-700;
+
+      .bg-placeholder {
+        @apply bg-gray-700;
+      }
+    }
+
+    &.selected {
+      @apply bg-gray-500;
+
+      .bg-placeholder,
+      .bg-placeholder-700 {
+        @apply bg-gray-500;
+      }
+    }
+  }
+}

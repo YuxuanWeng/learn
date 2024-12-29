@@ -1,0 +1,42 @@
+.oms-original-text-table {
+  // relative —— 使空状态相对表格定位
+  @apply p-3 relative;
+
+  .s-table {
+    @apply rounded-lg;
+    height: 384px;
+
+    ::selection {
+      @apply bg-primary-300;
+    }
+  }
+
+  .s-tbody {
+    .tr {
+      @apply cursor-auto;
+
+      &::before {
+        @apply hidden;
+      }
+
+      .td {
+        @apply h-auto py-1 px-4;
+        min-height: 28px;
+      }
+    }
+  }
+}
+
+// 避免打开 modal 后 ctrl/command + a 全选时，选择 modal 外的内容
+.oms-original-text-modal-effect {
+  #root {
+    user-select: none;
+
+    input,
+    textarea {
+      &::selection {
+        background-color: transparent !important;
+      }
+    }
+  }
+}

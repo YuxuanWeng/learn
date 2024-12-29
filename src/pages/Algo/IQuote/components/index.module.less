@@ -1,0 +1,59 @@
+.base-quote-type-select {
+  .ant-select-selection-item {
+    font-weight: 500;
+  }
+  .ant-select-selector {
+    height: 26px !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+}
+
+.quote-unit {
+  :global {
+    .base-quote-type-select;
+  }
+}
+
+.card-border() {
+  border: 1px solid;
+
+  border-color: #43454f;
+}
+
+.card-liquidation:hover {
+  > span {
+    max-width: calc(100% - 48px);
+  }
+
+  > *:last-child {
+    display: block;
+  }
+}
+
+.horizontal_scroll {
+  direction: rtl;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+
+  > * {
+    direction: ltr;
+    transform: rotate(90deg);
+  }
+}
+
+body {
+  .card_bond_search {
+    min-width: 0 !important;
+  }
+}
+
+.trader-room {
+  &:hover {
+    background-color: var(--color-gray-600);
+
+    > div:last-child {
+      color: var(--color-gray-000);
+    }
+  }
+}

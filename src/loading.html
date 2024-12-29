@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading</title>
+  <link rel="stylesheet" type="text/css" href="@fepkg/components/assets/styles/reset.css" />
+  <style>
+    html,
+    body {
+      height: 100%;
+      background-color: transparent !important;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      background-color: transparent;
+    }
+
+    .app-loading-wrap {
+      position: absolute;
+      background: linear-gradient(110deg, #252833 49.01%, rgba(37, 40, 51, 0.53) 96.36%);
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: 4px;
+    }
+
+    .app-loading-img {
+      width: 84px;
+      height: 42px;
+    }
+
+    .app-loading-txt {
+      color: #b1b2bd;
+      font-size: 13px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-loading-wrap">
+    <img src="./assets/image/app-loading.apng" alt="start-loading" class="app-loading-img" id="app-loading-img" />
+    <div class="app-loading-txt">启动中...</div>
+  </div>
+  <script>
+    setInterval(() => {
+      window.Main.invoke('get-should-close-loading').then(result => {
+        if (result) {
+          close();
+        }
+      });
+    }, 3000);
+  </script>
+  <script type="module">
+    import imageLoadingAbsolute from '@/assets/image/app-loading.apng';
+    import imageLogo from '@/assets/image/oms-logo.svg';
+    import imageLoadingRelative from './assets/image/app-loading.apng';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const imgLoading = document.getElementById('app-loading-img');
+      const imgValidRelative = new Image();
+      imgValidRelative.src = imageLoadingRelative;
+      imgValidRelative.onerror = () => {
+        const imgValidAbsolute = new Image();
+        imgValidAbsolute.src = imageLoadingAbsolute;
+        imgValidAbsolute.onload = () => {
+          imgLoading.src = imageLoadingAbsolute;
+        };
+        imgValidAbsolute.onerror = () => {
+          imgLoading.src = imageLogo;
+        };
+      };
+    });
+  </script>
+</body>
+
+</html>

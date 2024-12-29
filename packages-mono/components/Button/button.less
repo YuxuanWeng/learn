@@ -1,0 +1,340 @@
+.s-btn-block {
+  @apply flex w-full;
+}
+
+.s-btn {
+  @apply inline-flex-center flex-shrink-0 gap-1 def:py-1 def:px-[15px]
+         text-sm border border-solid rounded-lg select-none disabled:cursor-not-allowed;
+  font-weight: inherit;
+
+  .s-btn-icon {
+    @apply w-4 h-4 leading-0;
+  }
+
+  &.s-btn-primary {
+    @apply text-gray-700 def:bg-primary-100 def:border-primary-100 
+           hover:bg-primary-000 hover:border-primary-000 
+           active:bg-primary-100 active:border-primary-100
+           disabled:text-gray-600 disabled:bg-primary-400 disabled:border-primary-400;
+
+    &.s-btn-ghost {
+      @apply text-primary-100 def:bg-transparent def:border-primary-100
+             hover:text-primary-000 hover:bg-primary-700 hover:border-primary-000 
+             active:text-primary-100 
+             disabled:text-primary-400 disabled:bg-transparent disabled:border-primary-400;
+
+      &.s-btn-text {
+        @apply def:border-transparent
+             hover:bg-primary-600 hover:border-primary-600
+               disabled:bg-transparent disabled:border-transparent;
+      }
+    }
+
+    &.s-btn-plain {
+      @apply text-primary-100 def:bg-primary-600 def:border-primary-600
+      hover:text-primary-000 hover:bg-primary-500 hover:border-primary-500
+      active:text-primary-100 active:bg-primary-700 active:border-primary-700
+      disabled:text-primary-400 disabled:bg-primary-600 disabled:border-primary-600;
+    }
+  }
+
+  &.s-btn-secondary {
+    @apply text-gray-000 def:bg-secondary-100 def:border-secondary-100
+           hover:bg-secondary-000 hover:border-secondary-000
+           active:bg-secondary-100 active:border-secondary-100
+           disabled:text-white/45 disabled:bg-secondary-400 disabled:border-secondary-400;
+
+    &.s-btn-ghost {
+      @apply text-secondary-100 def:bg-transparent def:border-secondary-100
+             hover:text-secondary-000 hover:bg-secondary-700 hover:border-secondary-000
+             active:text-secondary-100
+             disabled:text-secondary-400 disabled:bg-transparent disabled:border-secondary-400;
+    }
+
+    &.s-btn-plain {
+      @apply text-secondary-100 def:bg-secondary-600 def:border-secondary-600
+      hover:text-secondary-000 hover:bg-secondary-500 hover:border-secondary-500
+      active:text-secondary-100 active:bg-secondary-700 active:border-secondary-700
+      disabled:text-secondary-400 disabled:bg-secondary-600 disabled:border-secondary-600;
+    }
+  }
+
+  &.s-btn-orange {
+    @apply text-gray-000 def:bg-orange-100 def:border-orange-100
+           hover:bg-orange-000 hover:border-orange-000
+           active:bg-orange-100 active:border-orange-100
+           disabled:text-white/45 disabled:bg-orange-400 disabled:border-orange-400;
+
+    &.s-btn-ghost {
+      @apply text-orange-100 def:bg-transparent def:border-orange-100
+             hover:text-orange-000 hover:bg-orange-700 hover:border-orange-000
+             active:text-orange-100
+             disabled:text-orange-400 disabled:bg-transparent disabled:border-orange-400;
+    }
+
+    &.s-btn-plain {
+      @apply text-orange-100 def:bg-orange-600 def:border-orange-600
+      hover:text-orange-000 hover:bg-orange-500 hover:border-orange-500
+      active:text-orange-100 active:bg-orange-700 active:border-orange-700
+      disabled:text-orange-400 disabled:bg-orange-600 disabled:border-orange-600;
+    }
+  }
+
+  &.s-btn-green {
+    @apply text-gray-000 def:bg-green-100 def:border-green-100 
+           hover:bg-green-000 hover:border-green-000 
+           active:bg-green-100 active:border-green-100
+           disabled:text-white/45 disabled:bg-green-400 disabled:border-green-400;
+
+    &.s-btn-ghost {
+      @apply text-green-100 def:bg-transparent def:border-green-100
+             hover:text-green-000 hover:bg-green-700 hover:border-green-000 
+             active:text-green-100
+             disabled:text-green-400 disabled:bg-transparent disabled:border-green-400;
+    }
+  }
+
+  &.s-btn-gray {
+    @apply text-gray-700 def:bg-gray-100 def:border-gray-100 
+           hover:bg-gray-000 hover:border-gray-000 
+           active:bg-gray-100
+           disabled:text-white/45 disabled:bg-gray-400 disabled:border-gray-400;
+
+    &.s-btn-ghost {
+      @apply text-gray-100 def:bg-transparent def:border-gray-100
+             hover:text-gray-100 hover:bg-white/24 hover:border-gray-100 
+             active:text-gray-000
+             disabled:text-gray-400 disabled:bg-transparent disabled:border-gray-400;
+      &.s-btn-text {
+        @apply def:border-gray-600
+        hover:text-gray-000 hover:bg-gray-600
+        active:text-gray-000 active:bg-gray-500
+        disabled:text-gray-400 disabled:bg-transparent disabled:border-gray-400;
+      }
+    }
+
+    &.s-btn-plain {
+      @apply text-gray-100 def:bg-gray-600 border-none
+             hover:text-gray-000 hover:bg-gray-500
+             active:text-gray-100 active:bg-gray-600
+             disabled:text-gray-300 disabled:bg-gray-600 disabled:border-none;
+
+      &.s-btn-plain-primary {
+        @apply text-primary-100
+               hover:text-primary-000
+               active:text-primary-200
+               disabled:text-primary-400;
+      }
+
+      &.s-btn-plain-orange {
+        @apply text-orange-100
+               hover:text-orange-000
+               active:text-orange-200
+               disabled:text-orange-400;
+      }
+    }
+  }
+
+  &.s-btn-danger {
+    @apply text-gray-000 def:bg-danger-100 def:border-danger-100 
+           hover:bg-danger-000 hover:border-danger-000 
+           active:bg-danger-100 active:border-danger-100
+           disabled:text-white/45 disabled:bg-danger-400 disabled:border-danger-400;
+
+    &.s-btn-ghost {
+      @apply text-danger-100 def:bg-transparent def:border-danger-100
+             hover:text-danger-000 hover:bg-danger-600 hover:border-danger-000 
+             active:text-danger-100
+             disabled:text-danger-400 disabled:bg-transparent disabled:border-danger-400;
+
+      &.s-btn-text {
+        @apply def:border-transparent
+             hover:bg-danger-600 hover:border-danger-600
+               disabled:bg-transparent disabled:border-transparent;
+      }
+    }
+
+    &.s-btn-plain {
+      @apply text-danger-100 def:bg-danger-600 def:border-danger-600
+           hover:text-danger-000 hover:bg-danger-500 hover:border-danger-500
+           active:text-danger-100 active:bg-danger-700 active:border-danger-700
+           disabled:text-danger-400 disabled:bg-danger-600 disabled:border-danger-600;
+    }
+  }
+
+  &.s-btn-yellow {
+    &.s-btn-ghost {
+      @apply text-yellow-100 def:bg-transparent def:border-yellow-100
+             hover:text-yellow-000 hover:bg-yellow-600 hover:border-yellow-000 
+             active:text-yellow-100
+             disabled:text-yellow-400 disabled:bg-transparent disabled:border-yellow-400;
+    }
+
+    &.s-btn-plain {
+      @apply text-danger-100 def:bg-danger-600 def:border-danger-600
+           hover:text-danger-000 hover:bg-danger-500 hover:border-danger-500
+           active:text-danger-100 active:bg-danger-700 active:border-danger-700
+           disabled:text-danger-400 disabled:bg-danger-600 disabled:border-danger-600;
+    }
+  }
+}
+
+.s-icon-btn-gray-mixin {
+  @apply text-gray-100 def:bg-gray-600 def:border-gray-600
+  hover:text-gray-000 hover:bg-gray-500 hover:border-gray-500
+  active:text-gray-100 active:bg-gray-600 active:border-gray-600
+  disabled:text-gray-300 disabled:bg-gray-600 disabled:border-gray-600;
+}
+
+.s-icon-btn-orange-mixin {
+  @apply text-gray-000 def:bg-orange-100 def:border-orange-100
+  hover:bg-orange-000 hover:border-orange-000
+  active:bg-orange-100 active:border-orange-100
+  disabled:text-white/45 disabled:bg-orange-400 disabled:border-orange-400;
+}
+
+.s-icon-btn-gray-ghost-mixin {
+  @apply def:bg-transparent def:border-transparent
+       hover:text-gray-000 hover:bg-gray-500 hover:border-gray-500
+       active:text-gray-100 active:bg-gray-600 active:border-gray-600
+       disabled:text-gray-300 disabled:bg-transparent disabled:border-transparent;
+}
+
+.s-icon-btn {
+  @apply inline-flex-center flex-shrink-0 gap-1 def:p-0
+         text-sm rounded-lg border border-solid border-transparent outline-none disabled:cursor-not-allowed;
+  min-width: 24px;
+  min-height: 24px;
+
+  .s-icon-btn-icon {
+    @apply leading-0;
+  }
+
+  &.s-btn-with-children {
+    @apply def:px-2;
+  }
+
+  &.s-btn-gray {
+    .s-icon-btn-gray-mixin();
+
+    &.s-btn-ghost {
+      &.s-btn-text {
+        .s-icon-btn-gray-ghost-mixin();
+      }
+    }
+  }
+
+  &.s-btn-primary {
+    @apply text-gray-700 def:bg-primary-100 def:border-primary-100
+  hover:bg-primary-000 hover:border-primary-000
+  active:bg-primary-100 active:border-primary-100
+  disabled:text-gray-600 disabled:bg-primary-400 disabled:border-primary-400;
+
+    &.s-btn-plain {
+      @apply text-primary-100 def:bg-primary-600 def:border-primary-600
+    hover:text-primary-000 hover:bg-primary-500 hover:border-primary-500
+    active:text-primary-100 active:bg-primary-700 active:border-primary-700
+    disabled:text-primary-400 disabled:bg-primary-600 disabled:border-primary-600;
+    }
+  }
+
+  &.s-btn-danger {
+    @apply text-gray-000 def:bg-danger-100 def:border-danger-100 
+           hover:bg-danger-000 hover:border-danger-000 
+           active:bg-danger-100 active:border-danger-100
+           disabled:text-white/45 disabled:bg-danger-400 disabled:border-danger-400;
+
+    &.s-btn-plain {
+      @apply text-danger-100 def:bg-danger-600 def:border-danger-600
+         hover:text-danger-000 hover:bg-danger-500 hover:border-danger-500
+         active:text-danger-100 active:bg-danger-700 active:border-danger-700
+         disabled:text-danger-400 disabled:bg-danger-600 disabled:border-danger-600;
+    }
+  }
+
+  &.s-btn-orange {
+    .s-icon-btn-orange-mixin();
+  }
+
+  &.s-btn-transparent {
+    @apply text-gray-100 def:bg-transparent def:border-transparent
+        hover:text-gray-000 hover:bg-white hover:bg-opacity-10 hover:border-opacity-10
+        active:text-gray-000 active:bg-white active:bg-opacity-4 hover:border-opacity-4
+        disabled:text-gray-300 disabled:bg-transparent;
+  }
+
+  &.s-btn-bright {
+    .s-icon-btn-gray-mixin();
+
+    &.s-btn-secondary {
+      &.s-btn-checked {
+        @apply text-gray-000 def:bg-secondary-100 def:border-secondary-100
+               hover:bg-secondary-000 hover:border-secondary-000
+               active:bg-secondary-100 active:border-secondary-100
+               disabled:text-white/45 disabled:bg-secondary-400 disabled:border-secondary-400;
+      }
+    }
+
+    &.s-btn-orange {
+      &.s-btn-ghost {
+        .s-icon-btn-gray-ghost-mixin();
+        @apply bg-transparent
+             hover:text-orange-000 hover:bg-transparent hover:border-transparent
+             disabled:text-gray-300;
+
+        &.s-btn-checked {
+          @apply text-orange-100 bg-transparent border-orange-100
+                 hover:text-orange-000 hover:bg-transparent
+                 disabled:text-orange-400 disabled:bg-transparent;
+        }
+      }
+
+      &.s-btn-checked {
+        @apply text-gray-000 def:bg-orange-100 def:border-orange-100
+               hover:bg-orange-000 hover:border-orange-000
+               active:bg-orange-100 active:border-orange-100
+               disabled:text-white/45 disabled:bg-orange-400 disabled:border-orange-400;
+      }
+    }
+
+    &.s-btn-green {
+      &.s-btn-ghost {
+        .s-icon-btn-gray-ghost-mixin();
+        @apply bg-transparent
+             hover:text-green-000 hover:bg-transparent hover:border-transparent
+             disabled:text-gray-300;
+
+        &.s-btn-checked {
+          @apply text-green-100 bg-transparent border-green-100
+                 hover:text-green-000 hover:bg-transparent
+                 disabled:text-green-400 disabled:bg-transparent;
+        }
+      }
+
+      &.s-btn-checked {
+        @apply text-gray-000 bg-green-100 border-green-100
+               hover:bg-green-000 hover:border-green-000
+               active:bg-green-100 active:border-green-100
+               disabled:text-white/45 disabled:bg-green-400 disabled:border-green-400;
+      }
+    }
+
+    &.s-btn-danger {
+      &.s-btn-checked {
+        @apply text-gray-000 def:bg-danger-100 def:border-danger-100
+               hover:bg-danger-000 hover:border-danger-000
+               active:bg-danger-100 active:border-danger-100
+               disabled:text-white/45 disabled:bg-danger-400 disabled:border-danger-400;
+      }
+    }
+
+    &.s-btn-purple {
+      &.s-btn-checked {
+        @apply text-gray-000 def:bg-purple-100 def:border-purple-100
+               hover:bg-purple-000 hover:border-purple-000
+               active:bg-purple-100 active:border-purple-100
+               disabled:text-white/45 disabled:bg-purple-400 disabled:border-purple-400;
+      }
+    }
+  }
+}

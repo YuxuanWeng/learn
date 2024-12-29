@@ -1,0 +1,342 @@
+// select
+
+// default
+// @select-border-color: @border-color-base;
+// @select-item-selected-color: @text-color;
+// @select-dropdown-bg: @component-background;
+// @select-item-selected-bg: @primary-1;
+// @select-item-active-bg: @item-hover-bg;
+// @select-dropdown-vertical-padding: @dropdown-vertical-padding;
+// @select-dropdown-font-size: @dropdown-font-size;
+// @select-dropdown-line-height: @dropdown-line-height;
+// @select-dropdown-height: 32px;
+// @select-background: @component-background;
+// @select-clear-background: @select-background;
+// @select-selection-item-bg: @background-color-base;
+// @select-selection-item-border-color: @border-color-split;
+// @select-single-item-height-lg: 40px;
+// @select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
+// @select-multiple-item-height-lg: 32px;
+// @select-multiple-item-spacing-half: ceil((@input-padding-vertical-base / 2));
+// @select-multiple-disabled-background: @input-disabled-bg;
+// @select-multiple-item-disabled-color: #bfbfbf;
+// @select-multiple-item-disabled-border-color: @select-border-color;
+
+// @select-prefix-cls: ~'@{ant-prefix}-select';
+// @select-height-without-border: @input-height-base - 2 * @border-width-base;
+// @select-dropdown-edge-child-vertical-padding: @dropdown-edge-child-vertical-padding;
+
+@select-item-selected-font-weight: 500;
+@error-color-active: #3b2c31;
+@input-placeholder-color: var(--color-gray-000);
+// @select-item-selected-bg: var(--color-primary-700);
+@select-item-active-bg: var(--color-gray-700);
+
+@select-disabled-cls: ~'@{ant-prefix}-select-item-option-disabled';
+
+// default start
+.ant-select {
+  font-size: 13px;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  &::after {
+    content: var(--prefix);
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    transform: translateY(-50%);
+    color: var(--color-gray-200);
+    font-size: 13px;
+  }
+  &-arrow {
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    right: 13px;
+    > * {
+      line-height: 0;
+    }
+  }
+  &-clear {
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    right: 12px;
+    transition: none;
+    &:hover > span {
+      color: var(--color-primary-000) !important;
+    }
+  }
+
+  &:not(.ant-select-customize-input) {
+    .ant-select-selector {
+      background-color: var(--color-gray-700);
+      border-radius: 8px;
+      padding: 0 12px;
+      height: 100%;
+    }
+  }
+  &-selection {
+    &-placeholder {
+      left: 12.5px !important;
+      right: 12px !important;
+      font-size: 13px;
+      color: var(--color-gray-300) !important;
+      padding-left: var(--prefix-padding) !important;
+    }
+    &-item {
+      font-weight: 500;
+      padding-left: var(--prefix-padding) !important;
+      color: var(--color-gray-000);
+      display: flex;
+      align-items: center;
+      .checked {
+        & > input,
+        & > .s-checkbox-container {
+          display: none;
+        }
+      }
+    }
+    &-overflow {
+      padding-left: var(--prefix-padding) !important;
+      flex-wrap: nowrap;
+      &-item {
+        display: flex;
+      }
+    }
+    &-search {
+      padding-left: var(--prefix-padding) !important;
+      margin-left: 0 !important;
+      margin-right: 24px;
+      overflow: hidden;
+      & > input,
+      &:focus > input {
+        &:placeholder-shown {
+          font-weight: 500;
+        }
+      }
+    }
+    &-search-input {
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--color-gray-000) !important;
+      font-family:
+        'OPPO Sans',
+        system-ui,
+        -apple-system,
+        Helvetica,
+        Arial,
+        sans-serif !important;
+    }
+  }
+  &-show {
+    &-scrollbar {
+      .rc-virtual-list-scrollbar {
+        display: block !important;
+      }
+    }
+  }
+  &-item {
+    font-size: 13px;
+    font-weight: 500;
+    background-color: transparent;
+    border-radius: 8px;
+    &-option {
+      &-active:not(.@{select-disabled-cls}) {
+        background-color: var(--color-gray-500) !important;
+      }
+      &-active:not(.@{select-disabled-cls}) > &-content {
+        // color: var(--color-primary-100) !important;
+      }
+      &-selected:not(.@{select-disabled-cls}) {
+        background-color: transparent;
+      }
+      &-selected:not(.@{select-disabled-cls}) > &-content {
+        color: var(--color-primary-100) !important;
+      }
+      &-selected:not(.@{select-disabled-cls}) .s-checkbox-wrapper {
+        color: var(--color-gray-000);
+      }
+      &-selected &-state {
+        display: none;
+      }
+      &-selected.@{select-disabled-cls} > &-content {
+        color: var(--color-gray-300);
+      }
+    }
+  }
+  &-dropdown {
+    background: var(--color-gray-600);
+    border: solid 1px var(--color-gray-500);
+    border-radius: 8px;
+    padding: 0;
+    .rc-virtual-list-scrollbar {
+      &-thumb {
+        background-color: rgba(#586066, 0.5) !important;
+
+        &:hover {
+          background-color: rgba(#586066, 0.8) !important;
+        }
+      }
+    }
+    &:not(.s-select-dropdown) {
+      width: auto !important;
+    }
+    .rc-virtual-list {
+      padding: 8px;
+      &-holder {
+        &-inner {
+          width: 100%;
+          // TODO: 这里不能加间距，加了间距会导致下拉区域中内容超出是被遮挡，因为antd计算出来下拉框的高度是固定的，没有包含间距
+          // gap: 4px;
+        }
+      }
+    }
+  }
+  &-selector {
+    box-shadow: none !important;
+    transition: none !important;
+  }
+  // 多选 - 输入框部分
+  &-multiple {
+    .ant-select-selection {
+      &-overflow-item-rest {
+        max-width: calc(100% - 18px);
+      }
+      &-item {
+        padding-left: 8px !important;
+        background: none;
+        border: none;
+        margin-right: 0;
+        align-items: center;
+        // TODO: 这里不确定生成的规则是否是“包含”关系，需验证
+        &-content {
+          margin: 0;
+        }
+      }
+      &-search {
+        padding-left: 0 !important;
+        &-input {
+          height: 22px;
+          line-height: 22px;
+          color: @input-color;
+        }
+      }
+    }
+  }
+}
+// default end
+
+// 多选 - DropDown 部分 start
+.multi-select-dropdown {
+  .ant-select-item {
+    &-option {
+      &-active:not(.@{select-disabled-cls}) {
+        background-color: var(--color-gray-500);
+      }
+      &-active:not(.@{select-disabled-cls}) > .ant-select-item-option-content {
+        color: var(--color-primary-000);
+      }
+      &-active:not(.@{select-disabled-cls}) .s-checkbox-container {
+        border-color: var(--color-primary-000);
+      }
+      &-selected:not(.@{select-disabled-cls}) {
+        background-color: transparent;
+      }
+      &-selected.ant-select-item-option-active:not(.@{select-disabled-cls}) {
+        background-color: var(--color-gray-500);
+      }
+      &-selected:not(.@{select-disabled-cls}) > .ant-select-item-option-content {
+        color: var(--color-primary-000);
+      }
+      &-selected .ant-select-item-option-state {
+        display: none;
+      }
+    }
+  }
+}
+// 多选 - DropDown 部分 end
+
+// focus start
+.ant-select-focused {
+  &.ant-select {
+    .ant-select-selector {
+      background-color: var(--color-primary-700) !important;
+    }
+  }
+}
+// focus end
+
+// disabled start
+.ant-select-disabled {
+  &.ant-select {
+    color: var(--color-gray-200);
+    .ant-select-selector {
+      background-color: var(--color-gray-600) !important;
+    }
+  }
+}
+// disabled end
+
+// error start
+.ant-select-status-error {
+  &.ant-select {
+    &:not(.ant-select-disabled):not(.ant-select-customize-input) {
+      .ant-select-selector {
+        border-color: var(--color-danger-100) !important;
+      }
+    }
+    &:hover {
+      &:not(.ant-select-disabled):not(.ant-select-customize-input) {
+        .ant-select-selector {
+          border-color: var(--color-danger-000) !important;
+        }
+      }
+    }
+  }
+}
+
+.ant-select-status-error.ant-select-focused {
+  &.ant-select {
+    &:not(.ant-select-disabled):not(.ant-select-customize-input) {
+      .ant-select-selector {
+        background-color: var(--color-danger-700) !important;
+        border-color: var(--color-danger-000) !important;
+      }
+    }
+  }
+}
+// error end
+
+// 右键菜单
+.shihe-context-menu {
+  &.ant-select {
+    position: absolute !important;
+    opacity: 0;
+    pointer-events: none;
+    @apply w-0 h-0;
+    .ant-select-selector {
+      @apply p-0 w-0 h-0;
+    }
+    .ant-select-selection-placeholder {
+      line-height: 0 !important;
+      @apply pt-0 pb-0;
+    }
+  }
+}
+.ant-select-dropdown.shihe-context-menu-dropdown {
+  background-color: transparent !important;
+  border: 0 none;
+  .ant-cascader-menu-item-active {
+    @apply bg-primary-500;
+  }
+  .ant-cascader-menu {
+    border: solid 1px var(--color-gray-400) !important;
+    border-radius: 4px;
+    @apply mr-1 bg-gray-600;
+  }
+  .ant-cascader-menu-item-expand-icon {
+    line-height: 1;
+  }
+}

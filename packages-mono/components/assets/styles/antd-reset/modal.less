@@ -1,0 +1,111 @@
+.modalTitle() {
+  font-size: 16px;
+  height: 48px;
+  color: var(--color-white);
+}
+
+.modalBody() {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-primary-border);
+  background-color: var(--color-gray-700);
+}
+
+.ant-modal.modal-center {
+  .ant-modal-confirm-title {
+    text-align: center;
+  }
+
+  .ant-modal-confirm-btns {
+    justify-content: center;
+  }
+}
+
+.ant-modal-confirm-btns {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 12px;
+  .ant-btn {
+    margin-left: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px !important;
+    min-width: 88px;
+  }
+}
+
+.ant-modal-confirm-body {
+  .ant-modal-confirm-content,
+  .ant-modal-error-content,
+  .ant-modal-warning-content,
+  .ant-modal-info-content,
+  .ant-modal-success-content {
+    margin-top: 12px;
+    .modalBody();
+  }
+
+  .ant-modal-confirm-title {
+    .modalTitle();
+  }
+}
+
+.ant-modal-confirm .ant-modal-body {
+  padding: 24px;
+}
+
+.ant-modal-confirm .ant-modal-content {
+  border-radius: 8px;
+}
+
+.ant-modal-header {
+  height: 48px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-gray-600);
+  padding: 16px 12px 0;
+}
+
+.ant-modal-title {
+  .modalTitle();
+}
+
+.ant-modal-body {
+  padding: 0;
+  .modalBody();
+}
+
+.ant-modal-footer {
+  border-top: none;
+  padding: 0;
+
+  .ant-btn + .ant-btn:not(.ant-dropdown-trigger) {
+    margin-left: 0;
+  }
+}
+
+.ant-modal-content {
+  border-radius: 8px;
+  border: 1px solid #33343c;
+  overflow: hidden;
+
+  .ant-modal-close {
+    width: 24px;
+    height: 24px;
+    margin-top: 12px;
+    margin-right: 12px;
+    user-select: none;
+  }
+
+  .ant-modal-close-x {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// 避免 ctrl/command + a 全选时，复制一个多余的换行符
+.ant-modal-mask {
+  user-select: none;
+}

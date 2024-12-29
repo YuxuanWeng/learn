@@ -1,0 +1,24 @@
+.bg {
+  background: linear-gradient(90deg, rgba(68, 178, 112, 0.2) 0%, rgba(68, 178, 112, 0) 100%);
+}
+
+.dealTable {
+  height: calc(100% - 88px);
+  position: relative;
+}
+
+.quoteTypeSelectDark {
+  :global {
+    .ant-select .ant-select-selector {
+      background-color: var(--color-gray-800);
+    }
+  }
+}
+
+.dateRangePickerWhiteText {
+  :global {
+    .ant-picker-input > input {
+      color: white !important;
+    }
+  }
+}

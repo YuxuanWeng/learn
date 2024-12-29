@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "WebWorker"],
+    "types": ["vite/client", "node", "@testing-library/jest-dom", "@types/wicg-file-system-access"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": ["./src/*"],
+      "app/*": ["./electron/*"],
+      "@packages/*": ["./packages/*"]
+    },
+    "noImplicitAny": false
+  },
+  "files": ["src/types/global.d.ts"],
+  "exclude": [
+    "node_modules/**",
+    "apps/**",
+    "src/out/**",
+    "storybook-static",
+    "dist",
+    "__tests__",
+    "*.stories.@{js|jsx|ts|tsx}"
+  ],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts", "**/*.js", ".eslintrc.js", "./lib.es5.d.ts"]
+}

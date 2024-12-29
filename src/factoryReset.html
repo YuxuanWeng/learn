@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      (async function () {
+        const afterReset = (errTxt = '') => {
+          setTimeout(() => window.Main.sendMessage('system-before-factory-reset', errTxt), 360);
+        };
+        const hasCookieItem = sKey => {
+          return new RegExp('(?:^|;\\s*)' + encodeURIComponent(sKey).replace(/[-.+*]/g, '\\$&') + '\\s*\\=').test(
+            document.cookie
+          );
+        };
+        const removeCookieItem = (sKey, sPath, sDomain) => {
+          if (!sKey || !hasCookieItem(sKey)) {
+            return false;
+          }
+          document.cookie =
+            encodeURIComponent(sKey) +
+            '=; expires=Thu, 01 Jan 1970 00:00:00 GMT' +
+            (sDomain ? '; domain=' + sDomain : '') +
+            (sPath ? '; path=' + sPath : '');
+          return true;
+        };
+
+        try {
+          localStorage.clear();
+
+          const cookieList = await cookieStore.getAll();
+          cookieList.forEach(item => removeCookieItem(item.name, '', item.domain));
+
+          const databases = await indexedDB.databases();
+          databases.forEach(item => {
+            if (item.name) indexedDB.deleteDatabase(item.name);
+          });
+
+          afterReset('');
+        } catch (er) {
+          afterReset('清理前端缓存时出现错误！');
+        }
+      })();
+    </script>
+  </body>
+</html>

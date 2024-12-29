@@ -1,0 +1,163 @@
+@import '@fepkg/components/assets/styles/reset.css';
+@import '@fepkg/components/assets/styles/business.less';
+@import '@fepkg/components/assets/styles/icon.less';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'OPPO Sans';
+  src: url('https://oms-fe-assets-zp.oss-cn-shanghai.aliyuncs.com/fonts/OPPOSans/OPPOSans-R.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OPPO Sans';
+  src: url('https://oms-fe-assets-zp.oss-cn-shanghai.aliyuncs.com/fonts/OPPOSans/OPPOSans-M.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OPPO Sans';
+  src: url('https://oms-fe-assets-zp.oss-cn-shanghai.aliyuncs.com/fonts/OPPOSans/OPPOSans-B.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OPPO Sans';
+  src: url('https://oms-fe-assets-zp.oss-cn-shanghai.aliyuncs.com/fonts/OPPOSans/OPPOSans-H.woff2') format('woff2');
+  font-weight: 900;
+  font-display: swap;
+}
+
+/* define colors */
+@layer base {
+  :root {
+    --color-white: #ffffff;
+
+    --color-primary-000: #5adeb2;
+    --color-primary-100: #1fd59e;
+    --color-primary-200: #21bb8d;
+    --color-primary-300: #239977;
+    --color-primary-400: #257761;
+    --color-primary-500: #265d50;
+    --color-primary-600: #234b44;
+    --color-primary-700: #243838;
+
+    --color-secondary-050: #bad6ff;
+    --color-secondary-000: #6babff;
+    --color-secondary-100: #4e95ff;
+    --color-secondary-200: #4885e0;
+    --color-secondary-300: #4170b6;
+    --color-secondary-400: #3a5a8d;
+    --color-secondary-500: #344a6d;
+    --color-secondary-600: #2d3c5a;
+    --color-secondary-700: #283043;
+    --color-secondary-800: #20242d;
+
+    --color-orange-050: #eecb96;
+    --color-orange-000: #ffb96f;
+    --color-orange-100: #ee994b;
+    --color-orange-200: #d08847;
+    --color-orange-300: #a97241;
+    --color-orange-400: #825c3c;
+    --color-orange-500: #644b37;
+    --color-orange-600: #513d31;
+    --color-orange-700: #3b312d;
+    --color-orange-800: #292423;
+
+    --color-gray-000: #fdfdfd;
+    --color-gray-100: #d4d5db;
+    --color-gray-200: #b1b2bd;
+    --color-gray-300: #777884;
+    --color-gray-400: #585a65;
+    --color-gray-500: #43454f;
+    --color-gray-600: #33343c;
+    --color-gray-700: #292a2f;
+    --color-gray-750: #26272c;
+    --color-gray-800: #1f2023;
+
+    --color-green-000: #53e084;
+    --color-green-100: #2dc266;
+    --color-green-200: #2cab5e;
+    --color-green-300: #2c8d53;
+    --color-green-400: #2b6e48;
+    --color-green-500: #2a5840;
+    --color-green-600: #264738;
+    --color-green-700: #253531;
+
+    --color-danger-000: #f88581;
+    --color-danger-100: #f06464;
+    --color-danger-200: #d25b5c;
+    --color-danger-300: #aa5051;
+    --color-danger-400: #834447;
+    --color-danger-500: #653b3f;
+    --color-danger-600: #513237;
+    --color-danger-700: #3b2c31;
+
+    --color-yellow-000: #fbeb70;
+    --color-yellow-100: #ffe03a;
+    --color-yellow-200: #dfc538;
+    --color-yellow-300: #b4a036;
+    --color-yellow-400: #897c34;
+    --color-yellow-500: #696132;
+    --color-yellow-600: #554e2d;
+    --color-yellow-700: #3e392b;
+
+    --color-purple-000: #c1a6ff;
+    --color-purple-100: #9570ff;
+    --color-purple-200: #8566e0;
+    --color-purple-300: #6f58b6;
+    --color-purple-400: #5a4a8d;
+    --color-purple-500: #493f6d;
+    --color-purple-600: #3c355a;
+    --color-purple-700: #2f2d43;
+  }
+}
+
+html {
+  @apply text-gray-000 bg-gray-800;
+  min-width: 1280px;
+  min-height: 720px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family:
+    'OPPO Sans',
+    system-ui,
+    -apple-system,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-weight: 500;
+}
+
+#root {
+  @apply text-sm h-full overflow-hidden;
+}
+
+.layout-page {
+  display: grid;
+  grid-template-rows: 56px auto;
+  grid-template-areas:
+    'header'
+    'main';
+  height: 100%;
+}
+
+.layout-header {
+  grid-area: header;
+  @apply flex justify-between items-center pr-4 border-0 border-b border-solid border-gray-600;
+}
+
+.layout-main {
+  grid-area: main;
+  overflow: hidden;
+  @apply flex;
+}

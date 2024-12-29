@@ -1,0 +1,112 @@
+.idc-spot-modal {
+  .ant-modal-header {
+    height: 48px;
+    padding: 0 12px;
+    .ant-modal-title {
+      line-height: 48px;
+      padding: 0;
+    }
+  }
+  .ant-modal-body {
+    overflow: hidden;
+    padding: 0;
+    section {
+      border-radius: 4px;
+      border: 1px solid var(--color-gray-400);
+      margin: 0 12px 12px;
+    }
+  }
+  .ant-modal-footer {
+    height: unset;
+    line-height: unset;
+    padding: 12px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    > label {
+      justify-self: flex-start;
+      margin-right: auto;
+      line-height: 32px;
+      cursor: pointer;
+      user-select: none;
+      > :first-child {
+        margin-right: 8px;
+      }
+    }
+  }
+  &.wait,
+  &.gvn {
+    .ant-modal-body,
+    .ant-modal-footer {
+      background-color: var(--color-auxiliary-700);
+    }
+    .ant-modal-header {
+      background-color: var(--color-auxiliary-300);
+    }
+  }
+  &.novolume,
+  &.tkn {
+    .ant-modal-body,
+    .ant-modal-footer {
+      background-color: var(--color-gray-700);
+    }
+    .ant-modal-header {
+      background-color: var(--color-ofr-300);
+    }
+  }
+}
+
+.spot-pricing-card {
+  max-height: 720px;
+  header {
+    background-color: var(--color-orange-500);
+  }
+  &.novolume {
+    header {
+      background-color: var(--color-gray-800);
+    }
+  }
+  &.offline {
+    header {
+      background-color: var(--color-gray-800);
+    }
+  }
+  &.confirmed {
+    header {
+      background-color: var(--color-green-500);
+    }
+  }
+  &.refused {
+    header {
+      background-color: var(--color-danger-500);
+    }
+  }
+  &.partial {
+    header {
+      background-color: var(--color-purple-500);
+    }
+  }
+
+  .gradient-success {
+    background: linear-gradient(
+      90deg,
+      rgba(37, 53, 49, 0) 0%,
+      #253531 50%,
+      rgba(37, 53, 49, 0.414751) 79.26%,
+      rgba(37, 53, 49, 0) 100%
+    );
+  }
+
+  .gradient-refused {
+    background: linear-gradient(90deg, rgba(59, 44, 49, 0) 0%, #3b2c31 50%, rgba(59, 44, 49, 0) 100%);
+  }
+
+  .gradient-partial {
+    background: linear-gradient(90deg, rgba(60, 53, 90, 0) 0%, #3c355a 50%, rgba(60, 53, 90, 0) 100%);
+  }
+
+  .gradient-asking {
+    background: linear-gradient(90deg, rgba(62, 57, 43, 0) 0%, #3e392b 50%, rgba(62, 57, 43, 0) 100%);
+  }
+}

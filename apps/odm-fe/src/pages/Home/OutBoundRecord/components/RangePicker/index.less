@@ -1,0 +1,30 @@
+.odm-range-picker {
+  .ant-picker-input {
+    width: 169px !important;
+  }
+}
+
+.odm-range-dropdown {
+  .ant-picker-footer {
+    border-top: 1px solid;
+
+    .ant-picker-ranges {
+      padding: 6px 16px !important;
+      justify-content: flex-end !important;
+    }
+  }
+
+  .ant-picker-time-panel-column {
+    // 修复滚动条导致的宽度变化——start
+    &:hover{
+      padding-right: 0px;
+    }
+    padding-right: 8px;
+    // 修复滚动条导致的宽度变化——end
+
+    // 让分秒单元格内容居中
+    .ant-picker-time-panel-cell-inner{
+      padding-left: 16px !important;
+    }
+  }
+}

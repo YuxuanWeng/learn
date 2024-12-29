@@ -1,0 +1,53 @@
+.idc-grid {
+  display: flex;
+  border: 1px solid;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  user-select: none;
+  position: relative;
+
+  &.empty {
+    &.bid {
+      border-color: var(--color-orange-600);
+      background-color: var(--color-orange-700);
+    }
+    &.ofr {
+      border-color: var(--color-secondary-600);
+      background-color: var(--color-secondary-700);
+    }
+  }
+
+  &:not(.empty) {
+    &.bid {
+      border-color: var(--color-orange-500);
+      background-color: var(--color-orange-600);
+      &:hover {
+        border-color: var(--color-orange-400);
+        background-color: var(--color-orange-500);
+      }
+      &:active {
+        border-color: var(--color-orange-500);
+        background-color: var(--color-orange-700);
+      }
+      .tip {
+        color: var(--color-orange-200);
+      }
+    }
+    &.ofr {
+      border-color: var(--color-secondary-500);
+      background-color: var(--color-secondary-600);
+      &:hover {
+        border-color: var(--color-secondary-400);
+        background-color: var(--color-secondary-500);
+      }
+      &:active {
+        border-color: var(--color-secondary-500);
+        background-color: var(--color-secondary-700);
+      }
+      .tip {
+        color: var(--color-secondary-200);
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@fepkg/services",
+  "version": "0.1.0",
+  "scripts": {
+    "gen-enum": "tsx scripts/generate-enum.ts",
+    "gen-common-types": "tsx scripts/generate-common-types.ts",
+    "gen-api-types": "tsx scripts/generate-api-types.ts",
+    "gen-algo-types": "tsx scripts/generate-algo-types.ts",
+    "gen-types": "pnpm gen-enum && pnpm gen-common-types && pnpm gen-api-types",
+    "gen-proto": "tsx scripts/generate-proto-json.ts",
+    "gen-access-code": "tsx scripts/generate-access-code.ts"
+  }
+}

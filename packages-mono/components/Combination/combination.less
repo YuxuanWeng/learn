@@ -1,0 +1,132 @@
+// 结合组件
+.s-combination {
+  @apply flex-center rounded-lg;
+  // 特殊样式-单独渲染文本，不属于任何组件
+  &-text {
+    @apply flex-center text-sm;
+    min-width: 32px;
+  }
+
+  // 1. 默认样式：背景色样式前800后600边框800，disable时背景色样式前600后700边框600
+  // 2. prefix700-suffix600样式：背景色样式前700后600边框700，disable时背景色样式前600后700边框600
+  // 结合组件禁用样式
+  &.s-combination-disabled {
+    .s-combination-prefix {
+      @apply bg-gray-600;
+    }
+    .prefix700-suffix600 > .s-combination-suffix {
+      @apply bg-gray-700 border-gray-600;
+    }
+    // 只有后缀的颜色才需要浅一些
+    .s-combination-suffix {
+      @apply bg-gray-700 border-gray-600 def:text-gray-300;
+    }
+  }
+
+  // s-combination-prefix的背景色
+  &-prefix {
+    @apply def:bg-gray-800;
+  }
+  .prefix700-suffix600 > &-prefix {
+    @apply def:bg-gray-700;
+  }
+  //s-combination-suffix的背景色
+  &-suffix {
+    @apply def:bg-gray-600 def:border-gray-800;
+  }
+  .prefix700-suffix600 > &-suffix {
+    @apply def:border-gray-700;
+  }
+
+  // 前面的圆角
+  &-prefix,
+  &.flex-row-reverse &-suffix {
+    border-radius: 8px 0 0 8px;
+    .ant-select-selector {
+      border-radius: 8px 0 0 8px !important;
+    }
+  }
+
+  // 后面的圆角
+  &-suffix,
+  &.flex-row-reverse &-prefix {
+    border-radius: 0 8px 8px 0;
+    .ant-select-selector {
+      border-radius: 0 8px 8px 0 !important;
+    }
+
+    // 后面为 button 的特殊样式
+    &.s-combination-btn {
+      .s-btn,
+      .s-icon-btn {
+        border-radius: 0 7px 7px 0 !important;
+      }
+    }
+  }
+
+  // 大号组件样式
+  &-md {
+    height: 32px;
+    .s-combination-prefix {
+      height: 32px;
+    }
+    .s-combination-suffix {
+      height: 32px;
+
+      // 后面为 button 的特殊样式
+      &.s-combination-btn {
+        width: 36px;
+
+        .s-btn,
+        .s-icon-btn {
+          width: 34px;
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  // 中号组件样式
+  &-sm {
+    height: 28px;
+    .s-combination-prefix {
+      height: 28px;
+    }
+    .s-combination-suffix {
+      height: 28px;
+
+      // 后面为 button 的特殊样式
+      &.s-combination-btn {
+        width: 32px;
+
+        .s-btn,
+        .s-icon-btn {
+          width: 30px;
+          height: 26px;
+        }
+      }
+    }
+  }
+
+  // 小号组件样式
+  &-xs {
+    height: 24px;
+    .s-combination-prefix {
+      height: 24px;
+    }
+    .s-combination-suffix {
+      height: 24px;
+
+      // 后面为 button 的特殊样式
+      &.s-combination-btn {
+        width: 28px;
+
+        .s-btn,
+        .s-icon-btn {
+          width: 26px;
+          height: 22px;
+        }
+      }
+    }
+  }
+}

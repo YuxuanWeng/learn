@@ -1,0 +1,37 @@
+.s-badge {
+  @apply relative inline-block;
+
+  .s-badge-dot,
+  .s-badge-count {
+    @apply absolute top-0 text-gray-000;
+    border-radius: 10px;
+    inset-inline-end: 0;
+    transform: translate(50%, -50%);
+    transform-origin: 100% 0%;
+  }
+
+  .s-badge-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .s-badge-count {
+    @apply flex-center h-4;
+    min-width: 16px;
+  }
+
+  // type
+  &.s-badge-danger {
+    .s-badge-dot,
+    .s-badge-count {
+      @apply bg-danger-100;
+    }
+  }
+
+  &.s-badge-primary {
+    .s-badge-dot,
+    .s-badge-count {
+      @apply bg-primary-100;
+    }
+  }
+}

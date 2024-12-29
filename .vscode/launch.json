@@ -1,0 +1,63 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "Debug OMS",
+      // "preLaunchTask": "Before Debug", // 需要前置执行的脚本
+      "configurations": [
+        "Debug Main Process"
+        // "Debug Renderer Process"
+      ],
+      "presentation": {
+        "hidden": false,
+        "group": "",
+        "order": 1
+      },
+      "stopAll": true
+      // "protocol": "inspector", // 默认的协议是legacy，该协议致使不进入断点
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Debug Main Process",
+      "type": "node",
+      "request": "launch",
+      // "program": "${workspaceFolder}/main/index.js", // 这里要写编译后的js文件, 即electron入口
+      "runtimeExecutable": "npm",
+      "windows": {
+        "runtimeExecutable": "npm"
+      },
+      "runtimeArgs": ["run", "debug"],
+      // "env": {
+      //   "MAIN_ARGS": "--inspect=5858 --remote-debugging-port=3000"
+      // },
+      "envFile": "${workspaceFolder}/.vscode/.debug.env", // 可以添加一个调试用的特殊环境变量
+      "console": "integratedTerminal",
+      "sourceMaps": true, // 必须为true
+      // "preLaunchTask": "npm: dev",
+      "protocol": "inspector" // 默认的协议是legacy，该协议致使不进入断点
+      // "args": ["."],
+      // "stopOnEntry": true
+    }
+    // // 。。预留，Renderer 需要单独配置时用；
+    // {
+    //   "name": "Debug Renderer Process",
+    //   "port": 3000,
+    //   "request": "attach",
+    //   "type": "chrome",
+    //   "timeout": 15000,
+    //   "skipFiles": [
+    //     "<node_internals>/**",
+    //     "${workspaceFolder}/lib/**/*.js",//跳过lib
+    //     "${workspaceFolder}/node_modules/**",
+    //     // "${workspaceFolder}/main/**",
+    //     // "${workspaceFolder}/src/out/**",
+    //     // Skip files in host(VITE_DEV_SERVER_URL)
+    //     // "http://127.0.0.1:3000/**"
+    //   ]
+    // },
+  ]
+}

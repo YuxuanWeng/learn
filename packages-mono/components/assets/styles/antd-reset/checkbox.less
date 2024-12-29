@@ -1,0 +1,121 @@
+// checkbox
+@checkbox-size: 12px;
+@checkbox-color: var(--color-orange-200);
+@checkbox-disabled-color: var(--color-orange-400);
+@checkbox-check-color: transparent;
+
+.ant-checkbox {
+  transform: translateY(-1px);
+  + span {
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  &::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  &-wrapper:hover {
+    .ant-checkbox-inner {
+      border-color: var(--color-orange-200) !important;
+    }
+    .ant-checkbox-checked {
+      border-radius: 2px;
+    }
+    span {
+      color: var(--color-orange-200);
+    }
+  }
+
+  &-input:focus + &-inner {
+    outline: 1px solid var(--color-orange-200);
+    outline-offset: 2px;
+    border-color: var(--color-gray-200);
+  }
+
+  &-wrapper-checked {
+    color: var(--color-gray-100);
+    .ant-checkbox-checked {
+      &::after {
+        border-radius: 2px;
+      }
+    }
+  }
+
+  &-checked {
+    .ant-checkbox-inner {
+      border-color: var(--color-orange-200) !important;
+    }
+  }
+
+  &-inner {
+    transition: none !important;
+    animation: none !important;
+
+    border-style: solid;
+    border-width: 0.5px;
+    border-radius: 2px !important;
+    border-color: var(--color-gray-200);
+
+    &::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+  &-checked &-inner::after {
+    margin-top: -1px;
+    border-width: 1px;
+    border-color: var(--color-white);
+  }
+  &-indeterminate &-inner {
+    border-width: 0.5px;
+    background-color: transparent;
+    &::after {
+      margin-top: 0;
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-orange-200);
+      border-radius: 1px;
+    }
+  }
+  &-group {
+    display: flex;
+  }
+  &-group-item {
+    margin-right: 4px;
+    // for 自定义渲染项
+    span:nth-of-type(2) > :first-child {
+      white-space: nowrap;
+      display: inline-flex;
+      flex-direction: row;
+      height: 24px;
+    }
+  }
+
+  &-disabled + span {
+    color: var(--color-gray-300) !important;
+  }
+  &-disabled &-inner {
+    border: none;
+    background-color: var(--color-gray-600);
+    &::after {
+      border-color: var(--color-gray-200);
+    }
+  }
+
+  &-disabled.ant-checkbox-checked &-inner {
+    background-color: var(--color-orange-400);
+    &::after {
+      border-color: var(--color-gray-300);
+    }
+  }
+
+  &-indeterminate.ant-checkbox-disabled &-inner {
+    border-style: solid;
+    border-color: var(--color-gray-300);
+    &::after {
+      background-color: var(--color-orange-400);
+    }
+  }
+}

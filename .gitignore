@@ -1,0 +1,38 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+bds.db
+stats.html
+.idea
+resources/exes
+tsconfig.tsbuildinfo
+oss.config.js
+config.default.json
+config.xintang-uat.json
+config.xintang.json
+
+# production
+/main
+/dist
+/src/out
+/report
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env.local
+.env.build_channel
+.env.development.local
+.env.test.local
+.env.production.local
+.session.vim
+.coverage
+storybook-static
+
+screenshots
+test-output

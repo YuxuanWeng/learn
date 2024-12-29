@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG FileExts="*.exe;*.dll;*.ocx;*.sys;*.cat;*.cab;*.msi;*.mui;*.bin;*.appx;*.eappx;*.appxbundle;*.eappxbundle;*.msix;*.emsix;*.msixbundle;*.emsixbundle;" UUID="9847d2f6-41dd-42e4-b497-9dd77ec9df68">
+	<SERVERS>
+		<Server Name="VSign" Addr="api.vsign.com:9010" Operator="D3356EAC641967DF0300E88671B81680828BF91C"></Server>
+	</SERVERS>
+	<RULES>
+		<RULE ID="ba06f3c1-3af1-4096-b941-d52679185224" Name="ForCmdSign-1" Cert="57B0230CA7942AC9615C0F38E19FBA074C5ACB4B" CN="上海矢合科技有限公司" Sha2Cert="" Sha2CN="" Desc="" InfoUrl="" Timestamp="TrustAsia" TimestampType="0" FileExts="" EnumSubDir="0" SkipSgined="0" Time="2023-02-02 16:44:06" For="USB" IsDefault="false"></RULE>
+	</RULES>
+	<SCHEDULES></SCHEDULES>
+	<LANGUAGE>zh</LANGUAGE>
+	<TRUSTCENTER>trustcenter.trustasia.com</TRUSTCENTER>
+	<STATISTICAL>stats.vsign.com:30090</STATISTICAL>
+</CONFIG>

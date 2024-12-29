@@ -1,0 +1,264 @@
+@import './base.less';
+
+@tabs-card-head-background: transparent;
+@tabs-card-height: 32px;
+@tabs-hover-color: var(--color-gray-100);
+@tabs-active-color: @tabs-hover-color;
+@tabs-highlight-color: @tabs-hover-color;
+@tabs-ink-bar-color: transparent;
+@tabs-horizontal-gutter: 50px;
+@tabs-horizontal-padding: 9px 0;
+@tabs-bar-margin: 0;
+@tabs-divider-width: 11px;
+@tabs-card-radius-top: 4px;
+@tabs-card-radius-bottom: 6px;
+@tabs-card-tag-gap: 17px;
+
+.ant-tabs-card-style(@bg, @txt) {
+  background-color: @bg !important;
+  .ant-tabs-tab-btn {
+    color: @txt;
+  }
+  &::before,
+  &::after {
+    z-index: 1;
+    content: '';
+    display: inline-block;
+    width: @tabs-card-radius-bottom;
+    height: @tabs-card-radius-bottom;
+    position: absolute;
+    bottom: 0;
+  }
+  &::after {
+    left: -@tabs-card-radius-bottom;
+    background: radial-gradient(circle at 0% 0%, transparent @tabs-card-radius-bottom, @bg 0);
+  }
+  &::before {
+    right: -@tabs-card-radius-bottom;
+    background: radial-gradient(circle at 100% 0%, transparent @tabs-card-radius-bottom, @bg 0);
+  }
+}
+
+.ant-tabs-gap-line {
+  display: inline-block;
+  content: '';
+  width: 1px;
+  height: 16px;
+  background-color: var(--color-gray-500);
+  position: absolute;
+  top: 50%;
+  left: -@tabs-card-tag-gap;
+  transform: translateY(-50%);
+}
+
+.ant-tabs-btn-ellipsis {
+  width: 100%;
+  max-width: 96px;
+  // max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ant-tabs {
+  &-ink-bar {
+    display: none;
+  }
+  // type=card
+  &-card {
+    .ant-tabs-nav-list {
+      padding: 0 @tabs-card-radius-bottom;
+    }
+    > .ant-tabs-nav {
+      .ant-tabs-tab {
+        &:not(&-with-remove) {
+          margin-right: 16px;
+        }
+        z-index: 0;
+        position: relative;
+        padding: 6px 16px;
+        border-radius: @tabs-card-radius-top @tabs-card-radius-top 0px 0px !important;
+        border: none !important;
+        color: var(--color-gray-200);
+        &-btn {
+          .ant-tabs-btn-ellipsis();
+        }
+        &.ant-tabs-tab-active:hover,
+        &:hover,
+        &:focus {
+          .ant-tabs-card-style(var(--color-gray-750), var(--color-gray-200));
+        }
+        &.ant-tabs-tab-active {
+          margin-right: @tabs-card-tag-gap !important;
+          .ant-tabs-card-style(var(--color-gray-800), var(--color-gray-200));
+        }
+        + .ant-tabs-tab {
+          margin-left: 18px !important;
+          > .ant-tabs-tab-btn::before {
+            .ant-tabs-gap-line();
+          }
+        }
+        + .ant-tabs-tab-active {
+          margin-left: @tabs-card-tag-gap !important;
+        }
+        .ant-tabs-tab-remove {
+          color: @tabs-hover-color;
+          line-height: 9px;
+          margin-left: 14px;
+          margin-right: 0;
+          padding: 0;
+          > span > svg {
+            width: 10px;
+            height: 10px;
+          }
+          > [class^='icon-'] {
+            width: 12px;
+            height: 12px;
+          }
+          &:hover {
+            .tabs-remove-icon {
+              @apply bg-primary-100;
+            }
+          }
+          &:active {
+            .tabs-remove-icon {
+              @apply bg-primary-300;
+            }
+          }
+          &:disabled {
+            .tabs-remove-icon {
+              @apply bg-gray-400;
+            }
+          }
+        }
+      }
+    }
+    &:hover .ant-tabs-tab-active {
+      // .ant-tabs-card-style(transparent, var(--color-gray-200));
+    }
+  }
+  // normal type
+  &:not(&-card) {
+    > .ant-tabs-nav .ant-tabs-tab {
+      width: 120px;
+      padding: 6px 16px 6px 18px;
+      line-height: 20px;
+      border: none !important;
+      // transition: none !important;
+      border-radius: 4px 4px 0px 0px !important;
+      background-color: var(--color-gray-750);
+      color: var(--color-gray-300);
+      &:not(&-active) {
+        // border-right: 1px solid #232e37 !important;
+      }
+      &.ant-tabs-tab-active:hover,
+      &:focus,
+      &:hover {
+        background-color: var(--color-gray-600);
+        .ant-tabs-tab-btn {
+          color: @tabs-hover-color;
+        }
+      }
+      &.ant-tabs-tab-active {
+        background-color: var(--color-gray-700);
+        .ant-tabs-tab-btn {
+          color: @tabs-hover-color;
+        }
+      }
+      .ant-tabs-tab-btn {
+        text-align: center;
+        font-size: 12px;
+        .ant-tabs-btn-ellipsis();
+      }
+      + .ant-tabs-tab {
+        margin-left: 2px !important;
+      }
+    }
+    &.ant-tabs-small .ant-tabs-tab {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+  }
+  &-nav-add {
+    border: none !important;
+    position: relative;
+    display: flex;
+    align-items: center;
+    &:before {
+      .ant-tabs-gap-line();
+      left: 0;
+    }
+    .tabs-add-icon {
+      width: 14px;
+      height: 14px;
+      vertical-align: middle;
+    }
+    &:hover {
+      .tabs-add-icon {
+        @apply bg-primary-100;
+      }
+    }
+    &:active {
+      .tabs-add-icon {
+        @apply bg-primary-300;
+      }
+    }
+    &:disabled {
+      .tabs-add-icon {
+        @apply bg-gray-400;
+      }
+    }
+  }
+  &-top > &-nav::before,
+  &-top > div > &-nav::before {
+    display: none; // 底部线
+  }
+}
+
+.ant-tabs-nav-item {
+  margin-right: 24px;
+  position: relative;
+  z-index: 1;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    transform: none;
+  }
+  &.wall {
+    padding: 0;
+    width: 0;
+    background-color: rgba(0, 162, 255, 0.6);
+    margin-right: 0;
+    z-index: 2;
+    transition: width 0.2s ease-in-out;
+    &:hover,
+    &.on {
+      margin-right: 16px;
+      // padding: 10px 20px;
+      width: 86px;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: -57px;
+      top: 0;
+      bottom: 0;
+      width: 86px;
+      height: 40px;
+    }
+    &:first-child:after {
+      left: 0;
+      width: 50px;
+    }
+    &:last-child:after {
+      left: 0;
+    }
+    .ant-tabs-tab-remove {
+      display: none;
+    }
+    .ant-tabs-tab-with-remove {
+      display: none;
+      border-right: 0 none !important;
+    }
+  }
+}

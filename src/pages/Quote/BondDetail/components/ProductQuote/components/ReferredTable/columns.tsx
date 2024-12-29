@@ -1,0 +1,75 @@
+import { ProductType } from '@fepkg/services/types/bdm-enum';
+import {
+  bidCol,
+  bondCodeCol,
+  bondRatingCol,
+  brokerCol,
+  cbcRatingCol,
+  cleanPriceCol,
+  commentCol,
+  conversionRateCol,
+  cpCol,
+  createTimeCol,
+  csiCleanPriceCol,
+  csiFullPriceCol,
+  csiYieldCol,
+  firstMaturityDateCol,
+  fullPriceCol,
+  impliedRatingCol,
+  issuerRatingCol,
+  listedDateCol,
+  maturityDateCol,
+  ofrCol,
+  operatorCol,
+  optionTypeCol,
+  pvbpCol,
+  referTimeCol,
+  referTypeCol,
+  repaymentMethodCol,
+  shortNameCol,
+  spreadCol,
+  valCleanPriceCol,
+  valModifiedDurationCol,
+  valYieldCol,
+  volCol
+} from '@/pages/ProductPanel/components/BasicTable/columns';
+
+export const getColumns = (productType: ProductType) => {
+  let res = [
+    referTimeCol,
+    cpCol,
+    brokerCol,
+    bidCol,
+    ofrCol,
+    volCol,
+    referTypeCol,
+    fullPriceCol,
+    cleanPriceCol,
+    spreadCol,
+    optionTypeCol,
+    listedDateCol,
+    repaymentMethodCol,
+    valModifiedDurationCol,
+    commentCol,
+    operatorCol,
+    createTimeCol,
+    conversionRateCol,
+    cbcRatingCol,
+    firstMaturityDateCol,
+    bondCodeCol,
+    shortNameCol,
+    issuerRatingCol,
+    bondRatingCol,
+    valCleanPriceCol,
+    valYieldCol,
+    csiCleanPriceCol,
+    csiFullPriceCol,
+    maturityDateCol,
+    csiYieldCol,
+    pvbpCol
+  ];
+
+  if (productType === ProductType.BCO) res = [...res, impliedRatingCol];
+
+  return res;
+};

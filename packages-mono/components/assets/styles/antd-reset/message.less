@@ -1,0 +1,46 @@
+.messageColor(@bgColor) {
+  background: @bgColor;
+  border-color: @bgColor;
+  color: @bgColor;
+  border-radius: 8px;
+}
+
+.ant-message {
+  i[class^='icon'] {
+    width: 16px;
+    height: 16px;
+  }
+
+  &-notice-content {
+    border: solid 1px;
+    border-radius: 2px;
+  }
+
+  &-notice-success .ant-message-notice-content {
+    .messageColor(rgba(38, 55, 50, 0.8));
+  }
+
+  &-notice-warning .ant-message-notice-content {
+    .messageColor(rgba(59, 49, 46, 0.8));
+  }
+
+  &-notice-error .ant-message-notice-content {
+    .messageColor(rgba(59, 44, 49, 0.8));
+  }
+
+  &-notice-info .ant-message-notice-content {
+    .messageColor(var(--color-gray-700));
+  }
+
+  &-notice-custom .ant-message-notice-content {
+    .messageColor(var(--color-gray-700));
+    position: fixed;
+    left: 24px;
+    padding: 0;
+  }
+
+  .ant-message-custom-content {
+    display: flex;
+    align-items: center;
+  }
+}

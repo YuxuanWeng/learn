@@ -1,0 +1,26 @@
+diff --git a/es/RangePicker.js b/es/RangePicker.js
+index 928885f698b83f03a2b8069ff88b7cc2902dc4a5..b19b7453877f252de64d89c8b9a3c76f7c90be1a 100644
+--- a/es/RangePicker.js
++++ b/es/RangePicker.js
+@@ -262,7 +262,7 @@ function InnerRangePicker(props) {
+     raf(function () {
+       var _inputRef$current;
+       var inputRef = [startInputRef, endInputRef][index];
+-      (_inputRef$current = inputRef.current) === null || _inputRef$current === void 0 || _inputRef$current.focus();
++      (_inputRef$current = inputRef.current) === null || _inputRef$current === void 0 || _inputRef$current.focus({ preventScroll: true });
+     }, 0);
+   }
+   function triggerChange(newValue, sourceIndex, triggerCalendarChangeOnly) {
+diff --git a/lib/RangePicker.js b/lib/RangePicker.js
+index 6594276a0d8a6e35190c4963bb0a2ea5d7b22a03..3a66056f72821f74a8ad83f39e931670a36a282b 100644
+--- a/lib/RangePicker.js
++++ b/lib/RangePicker.js
+@@ -272,7 +272,7 @@ function InnerRangePicker(props) {
+     (0, _raf.default)(function () {
+       var _inputRef$current;
+       var inputRef = [startInputRef, endInputRef][index];
+-      (_inputRef$current = inputRef.current) === null || _inputRef$current === void 0 || _inputRef$current.focus();
++      (_inputRef$current = inputRef.current) === null || _inputRef$current === void 0 || _inputRef$current.focus({ preventScroll: true });
+     }, 0);
+   }
+   function triggerChange(newValue, sourceIndex, triggerCalendarChangeOnly) {
