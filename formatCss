@@ -1,0 +1,91 @@
+const fs = require('fs') // 引入文件系统模块
+const path = require('path') // 引入路径模块
+const postcss = require('postcss') // 引入PostCSS模块
+const valueParser = require('postcss-value-parser') // 引入PostCSS值解析模块
+// 配置需要转化的文件
+const config = [
+    {
+        inPath: '@ctrip/corpd-h5/dist/index.css',
+        outPath: 'src/Components/Components/Product/Authorized/AuthRCCost/corpd-h5/index.css',
+    }
+]
+
+// 定义转换像素值的函数
+function transformPx(file, resultCssPath) {
+    // 先创建目标文件
+    fs.writeFileSync(resultCssPath, '', 'utf-8');
+    fs.readFile(file, 'utf8', (err, css) => {
+        // 读取CSS文件
+        if (err) {
+            console.error('Error reading file:', err) // 读取文件错误处理
+            return
+        }
+        postcss([
+            root => {
+                // 遍历所有规则，为非 @keyframes 和非 @charset 规则的选择器添加 'html' 前缀
+                root.walkRules(rule => {
+                    if (rule.parent && rule.parent.name === 'keyframes') {
+                        return // 跳过 @keyframes 规则
+                    }
+                    if (rule.selector.startsWith('@charset')) {
+                        return // 跳过 @charset 规则
+                    }
+                    rule.selectors = rule.selectors.map(selector => `html ${selector}`)
+                })
+
+                // 遍历所有声明，转换像素值
+                root.walkDecls(decl => {
+                    const parsedValue = valueParser(decl.value) // 解析声明的值
+                    parsedValue.walk(node => {
+                        if (node.type === 'word' && node.value.includes('px')) {
+                            // 检查是否为像素值
+                            let number = parseFloat(node.value.replace('px', '')) // 提取数字
+                            if (!isNaN(number)) {
+                                // 确保提取的数字有效
+                                // 根据条件转换像素值
+                                if (number > 1) {
+                                    number = number / 2 // 大于1的像素值除以2
+                                } else if (number < -1) {
+                                    number = number / 2 // 小于-1的像素值除以2
+                                }
+                                // 更新节点值
+                                node.value = `${number}px`
+                            }
+                        }
+                    })
+                    decl.value = parsedValue.toString() // 将解析后的值转换回字符串
+                })
+            },
+        ])
+            .process(css, {
+                // 处理CSS
+                from: file, // 指定源文件路径
+                to: resultCssPath, // 指定结果文件路径
+            })
+            .then(result => {
+                // 处理成功
+                fs.writeFile(resultCssPath, result.css, err => {
+                    // 写入转换后的CSS
+                    if (err) {
+                        console.error('Error writing file:', err) // 写入文件错误处理
+                    } else {
+                        console.log('CSS transformed and saved successfully.') // 成功提示
+                    }
+                })
+            })
+            .catch(err => {
+                // 处理错误
+                console.error('PostCSS processing error:', err) // 打印错误信息
+            })
+    })
+}
+
+
+function transformPxByConfig(config) {
+    config.forEach(item => {
+        const originalCssPath = path.join(__dirname, 'node_modules', item.inPath)
+        const resultCssPath = path.join(__dirname, item.outPath)
+        transformPx(originalCssPath, resultCssPath)
+    })
+}
+transformPxByConfig(config)
